@@ -1,4 +1,4 @@
-// Copyright 2021 @subgame-network/api authors & contributors
+// Copyright 2021 @subgame/api authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
@@ -8,7 +8,7 @@ import {
   types as subgameTypes,
   typesAlias as subgameTypeAlias,
   typesBundle as subgameTypesBundle
-} from '@subgame-network/types';
+} from '@subgame/types';
 import { ApiOptions } from '@polkadot/api/types';
 
 export const defaultOptions: ApiOptions = {

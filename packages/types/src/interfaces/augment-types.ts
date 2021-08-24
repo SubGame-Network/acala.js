@@ -58,14 +58,14 @@ import type { ClassDetails, ClassId, ClassMetadata, DepositBalance, DepositBalan
 import type { Multisig, Timepoint } from '@polkadot/types/interfaces/utility';
 import type { VestingInfo } from '@polkadot/types/interfaces/vesting';
 import type { AccountId32Junction, AccountIndex64Junction, AccountKey20Junction, AssetInstance, BodyId, BodyPart, BodyPartAtLeastProportion, BodyPartFraction, BodyPartMoreThanProportion, DoubleEncodedCall, InboundStatus, Junction, MultiAsset, MultiAssetAbstractFungible, MultiAssetAbstractNonFungible, MultiAssetConcreteFungible, MultiAssetConcreteNonFungible, MultiLocation, NetworkId, OutboundStatus, Outcome, PluralityJunction, QueueConfigData, VersionedMultiAsset, VersionedMultiLocation, VersionedXcm, Xcm, XcmAssetEffects, XcmError, XcmHrmpChannelAccepted, XcmHrmpChannelClosing, XcmHrmpNewChannelOpenRequest, XcmOrder, XcmOrderBuyExecution, XcmOrderDepositAsset, XcmOrderDepositReserveAsset, XcmOrderExchangeAsset, XcmOrderInitiateReserveWithdraw, XcmOrderInitiateTeleport, XcmOrderQueryHolding, XcmOrigin, XcmOriginKind, XcmQueryResponse, XcmRelayedFrom, XcmReserveAssetDeposit, XcmResponse, XcmTeleportAsset, XcmTransact, XcmTransferAsset, XcmTransferReserveAsset, XcmWithdrawAsset, XcmpMessageFormat } from '@polkadot/types/interfaces/xcm';
-import type { BridgeRecord } from '@subgame-network/types/interfaces/bridge';
-import type { ChipBalance, ChipsDetail } from '@subgame-network/types/interfaces/chips';
-import type { GameInstance, GameInstanceId } from '@subgame-network/types/interfaces/gameCenter';
-import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame-network/types/interfaces/gameGuessHashModule';
-import type { Template, TemplateName } from '@subgame-network/types/interfaces/gameTemplates';
-import type { UserInfo } from '@subgame-network/types/interfaces/stake';
-import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame-network/types/interfaces/subgameAssets';
-import type { Swap, SwapId, TokenBalance, TokenId } from '@subgame-network/types/interfaces/swaps';
+import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
+import type { ChipBalance, ChipsDetail } from '@subgame/types/interfaces/chips';
+import type { GameInstance, GameInstanceId } from '@subgame/types/interfaces/gameCenter';
+import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { Template, TemplateName } from '@subgame/types/interfaces/gameTemplates';
+import type { UserInfo } from '@subgame/types/interfaces/stake';
+import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { Swap, SwapId, TokenBalance, TokenId } from '@subgame/types/interfaces/swaps';
 
 declare module '@polkadot/types/types/registry' {
   export interface InterfaceTypes {

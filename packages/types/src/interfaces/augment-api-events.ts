@@ -4,8 +4,8 @@
 import type { Bytes, u128, u32, u8 } from '@polkadot/types';
 import type { BlockHash } from '@polkadot/types/interfaces/chain';
 import type { AccountId, Balance, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
-import type { ChipBalance } from '@subgame-network/types/interfaces/chips';
-import type { GameIndex, GameMode } from '@subgame-network/types/interfaces/gameGuessHashModule';
+import type { ChipBalance } from '@subgame/types/interfaces/chips';
+import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/events' {

@@ -9,12 +9,12 @@
     "module": "CommonJS",
     "baseUrl": ".",
     "paths": {
-      "@subgame-network/api": ["packages/api/src"],
-      "@subgame-network/api/*": ["packages/api/src/*"],
-      "@subgame-network/types": ["packages/types/src"],
-      "@subgame-network/types/*": ["packages/types/src/*"],
-      "@subgame-network/type-definitions": ["packages/type-definitions/src"],
-      "@subgame-network/type-definitions/*": ["packages/type-definitions/src/*"]
+      "@subgame/api": ["packages/api/src"],
+      "@subgame/api/*": ["packages/api/src/*"],
+      "@subgame/types": ["packages/types/src"],
+      "@subgame/types/*": ["packages/types/src/*"],
+      "@subgame/type-definitions": ["packages/type-definitions/src"],
+      "@subgame/type-definitions/*": ["packages/type-definitions/src/*"]
 
     },
     "skipLibCheck": true,

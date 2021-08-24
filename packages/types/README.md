@@ -1,3 +1,3 @@
-# @subgame-network/types
+# @subgame/types
 
 Polkadot.js types for SubGame Network

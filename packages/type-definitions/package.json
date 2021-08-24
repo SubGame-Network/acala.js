@@ -1,5 +1,5 @@
 {
-  "name": "@subgame-network/type-definitions",
+  "name": "@subgame/type-definitions",
   "version": "0.0.1",
   "description": "Polkadot.js type definations for SubGame Network",
   "main": "index.js",

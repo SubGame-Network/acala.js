@@ -4,7 +4,7 @@ import {
   typesAlias as subgameTypeAlias,
   rpc as subgameRpc,
   signedExtensions as subgameSignedExtensions
-} from '@subgame-network/type-definitions';
+} from '@subgame/type-definitions';
 import {
   OverrideBundleType,
   OverrideModuleType,
