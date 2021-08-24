@@ -26,9 +26,9 @@
     "@babel/runtime": "^7.10.2",
     "@open-web3/api-mobx": "^0.9.4-19",
     "@open-web3/orml-types": "^0.9.4-19",
-    "@polkadot/api": "^4.12.1",
-    "@polkadot/typegen": "^4.12.1",
-    "@polkadot/types": "^4.12.1",
+    "@polkadot/api": "^4.14.1",
+    "@polkadot/typegen": "^4.14.1",
+    "@polkadot/types": "^4.14.1",
     "@subgame/type-definitions": "^0.0.2"
   },
   "devDependencies": {

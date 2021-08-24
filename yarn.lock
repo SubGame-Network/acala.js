@@ -2029,7 +2029,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/typegen@npm:^4.12.1":
+"@polkadot/typegen@npm:^4.14.1":
   version: 4.17.1
   resolution: "@polkadot/typegen@npm:4.17.1"
   dependencies:
@@ -2262,8 +2262,8 @@ __metadata:
   resolution: "@subgame/api@workspace:packages/api"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@polkadot/api": ^4.12.1
-    "@subgame/types": ^0.0.1
+    "@polkadot/api": ^4.14.1
+    "@subgame/types": ^0.0.2
   languageName: unknown
   linkType: soft
 
@@ -2283,7 +2283,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@subgame/type-definitions@^0.0.1, @subgame/type-definitions@workspace:packages/type-definitions":
+"@subgame/type-definitions@^0.0.2, @subgame/type-definitions@workspace:packages/type-definitions":
   version: 0.0.0-use.local
   resolution: "@subgame/type-definitions@workspace:packages/type-definitions"
   dependencies:
@@ -2291,17 +2291,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@subgame/types@^0.0.1, @subgame/types@workspace:packages/types":
+"@subgame/types@^0.0.2, @subgame/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@subgame/types@workspace:packages/types"
   dependencies:
     "@babel/runtime": ^7.10.2
     "@open-web3/api-mobx": ^0.9.4-19
     "@open-web3/orml-types": ^0.9.4-19
-    "@polkadot/api": ^4.12.1
-    "@polkadot/typegen": ^4.12.1
-    "@polkadot/types": ^4.12.1
-    "@subgame/type-definitions": ^0.0.1
+    "@polkadot/api": ^4.14.1
+    "@polkadot/typegen": ^4.14.1
+    "@polkadot/types": ^4.14.1
+    "@subgame/type-definitions": ^0.0.2
     "@types/websocket": ^1.0.0
     websocket: ^1.0.31
   languageName: unknown
