@@ -3,13 +3,14 @@
 
 import type { Bytes, Option, Vec, u32 } from '@polkadot/types';
 import type { AnyNumber, Observable } from '@polkadot/types/types';
-import type { AccountId, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
 import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
 import type { ChipsDetail } from '@subgame/types/interfaces/chips';
 import type { GameInstance, GameInstanceId } from '@subgame/types/interfaces/gameCenter';
 import type { BetInfo, GameIndex, GameInfo } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { Template } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
+import type { SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { Swap, SwapId, TokenId } from '@subgame/types/interfaces/swaps';
 import type { ApiTypes } from '@polkadot/api/types';
 
@@ -97,6 +98,24 @@ declare module '@polkadot/api/types/storage' {
       stakePool: AugmentedQuery<ApiType, () => Observable<BalanceOf>, []> & QueryableStorageEntry<ApiType, []>;
       userInfoMap: AugmentedQuery<ApiType, (arg: AccountId | string | Uint8Array) => Observable<UserInfo>, [AccountId]> & QueryableStorageEntry<ApiType, [AccountId]>;
       userStake: AugmentedQuery<ApiType, (arg: AccountId | string | Uint8Array) => Observable<BalanceOf>, [AccountId]> & QueryableStorageEntry<ApiType, [AccountId]>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    subgameAssets: {
+      /**
+       * The number of units of assets held by any given account.
+       **/
+      account: AugmentedQuery<ApiType, (arg1: AssetId | AnyNumber | Uint8Array, arg2: AccountId | string | Uint8Array) => Observable<SusGameAssetBalance>, [AssetId, AccountId]> & QueryableStorageEntry<ApiType, [AssetId, AccountId]>;
+      /**
+       * Details of an asset.
+       **/
+      asset: AugmentedQuery<ApiType, (arg: AssetId | AnyNumber | Uint8Array) => Observable<Option<SubGameAssetDetails>>, [AssetId]> & QueryableStorageEntry<ApiType, [AssetId]>;
+      /**
+       * Metadata of an asset.
+       **/
+      metadata: AugmentedQuery<ApiType, (arg: AssetId | AnyNumber | Uint8Array) => Observable<SubGameAssetMetadata>, [AssetId]> & QueryableStorageEntry<ApiType, [AssetId]>;
       /**
        * Generic query
        **/

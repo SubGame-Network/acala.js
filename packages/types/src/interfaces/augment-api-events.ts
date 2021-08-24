@@ -3,9 +3,10 @@
 
 import type { Bytes, u128, u32, u8 } from '@polkadot/types';
 import type { BlockHash } from '@polkadot/types/interfaces/chain';
-import type { AccountId, Balance, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/events' {
@@ -93,6 +94,72 @@ declare module '@polkadot/api/types/events' {
       Stake: AugmentedEvent<ApiType, [AccountId, Balance]>;
       Unlock: AugmentedEvent<ApiType, [AccountId, Balance]>;
       Withdraw: AugmentedEvent<ApiType, [AccountId, Balance]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    subgameAssets: {
+      /**
+       * Some asset `asset_id` was frozen. \[asset_id\]
+       **/
+      AssetFrozen: AugmentedEvent<ApiType, [AssetId]>;
+      /**
+       * Some asset `asset_id` was thawed. \[asset_id\]
+       **/
+      AssetThawed: AugmentedEvent<ApiType, [AssetId]>;
+      /**
+       * Some assets were destroyed. \[asset_id, owner, balance\]
+       **/
+      Burned: AugmentedEvent<ApiType, [AssetId, AccountId, SGAssetBalance]>;
+      /**
+       * Some asset class was created. \[asset_id, creator, owner\]
+       **/
+      Created: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId]>;
+      /**
+       * An asset class was destroyed.
+       **/
+      Destroyed: AugmentedEvent<ApiType, [AssetId]>;
+      /**
+       * Some asset class was force-created. \[asset_id, owner\]
+       **/
+      ForceCreated: AugmentedEvent<ApiType, [AssetId, AccountId]>;
+      /**
+       * Some assets was transferred by an admin. \[asset_id, from, to, amount\]
+       **/
+      ForceTransferred: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, SGAssetBalance]>;
+      /**
+       * Some account `who` was frozen. \[asset_id, who\]
+       **/
+      Frozen: AugmentedEvent<ApiType, [AssetId, AccountId]>;
+      /**
+       * Some assets were issued. \[asset_id, owner, total_supply\]
+       **/
+      Issued: AugmentedEvent<ApiType, [AssetId, AccountId, SGAssetBalance]>;
+      /**
+       * The maximum amount of zombies allowed has changed. \[asset_id, max_zombies\]
+       **/
+      MaxZombiesChanged: AugmentedEvent<ApiType, [AssetId, u32]>;
+      /**
+       * New metadata has been set for an asset. \[asset_id, name, symbol, decimals\]
+       **/
+      MetadataSet: AugmentedEvent<ApiType, [AssetId, Bytes, Bytes, u8]>;
+      /**
+       * The owner changed \[asset_id, owner\]
+       **/
+      OwnerChanged: AugmentedEvent<ApiType, [AssetId, AccountId]>;
+      /**
+       * The management team changed \[asset_id, issuer, admin, freezer\]
+       **/
+      TeamChanged: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, AccountId]>;
+      /**
+       * Some account `who` was thawed. \[asset_id, who\]
+       **/
+      Thawed: AugmentedEvent<ApiType, [AssetId, AccountId]>;
+      /**
+       * Some assets were transferred. \[asset_id, from, to, amount\]
+       **/
+      Transferred: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, SGAssetBalance]>;
       /**
        * Generic event
        **/

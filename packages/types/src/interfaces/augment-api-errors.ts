@@ -64,6 +64,68 @@ declare module '@polkadot/api/types/errors' {
        **/
       [key: string]: AugmentedError<ApiType>;
     };
+    subgameAssets: {
+      /**
+       * Transfer amount should be non-zero.
+       **/
+      AmountZero: AugmentedError<ApiType>;
+      /**
+       * Account balance must be greater than or equal to the transfer amount.
+       **/
+      AssetBalanceLow: AugmentedError<ApiType>;
+      /**
+       * AssetBalance should be non-zero.
+       **/
+      AssetBalanceZero: AugmentedError<ApiType>;
+      /**
+       * Invalid metadata given.
+       **/
+      BadMetadata: AugmentedError<ApiType>;
+      /**
+       * Some internal state is broken.
+       **/
+      BadState: AugmentedError<ApiType>;
+      /**
+       * Invalid witness data given.
+       **/
+      BadWitness: AugmentedError<ApiType>;
+      /**
+       * The origin account is frozen.
+       **/
+      Frozen: AugmentedError<ApiType>;
+      /**
+       * The asset ID is already taken.
+       **/
+      InUse: AugmentedError<ApiType>;
+      /**
+       * Minimum balance should be non-zero.
+       **/
+      MinBalanceZero: AugmentedError<ApiType>;
+      /**
+       * The signing account has no permission to do the operation.
+       **/
+      NoPermission: AugmentedError<ApiType>;
+      /**
+       * A mint operation lead to an overflow.
+       **/
+      Overflow: AugmentedError<ApiType>;
+      /**
+       * Attempt to destroy an asset class when non-zombie, reference-bearing accounts exist.
+       **/
+      RefsLeft: AugmentedError<ApiType>;
+      /**
+       * Too many zombie accounts in use.
+       **/
+      TooManyZombies: AugmentedError<ApiType>;
+      /**
+       * The given asset ID is unknown.
+       **/
+      Unknown: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
     swaps: {
       /**
        * Trying to burn zero shares.
