@@ -1,72 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { OverrideVersionedType } from '@polkadot/types/types';
-import { rpc as ormlRpc, types as ormlTypes, typesAlias as ormlAlias } from '@open-web3/orml-type-definitions';
 import { jsonrpcFromDefs, typesAliasFromDefs, typesFromDefs } from '@open-web3/orml-type-definitions/utils';
-import accounts from './accounts';
-import auctionManager from './auctionManager';
-import cdpEngine from './cdpEngine';
-import dex from './dex';
-import evm from './evm';
-import homa from './homa';
-import collatorSelection from './collatorSelection';
-import homaValidatorList from './homaValidatorList';
-import incentives from './incentives';
-import loans from './loans';
-import nft from './nft';
-import nomineesElection from './nomineesElection';
-import primitives from './primitives';
 
-// ecosystem
-import renvmBridge from './renvmBridge';
-import { chainBridge, chainSafeTransfer } from './chainSafe';
+import { signedExtensions as subgameSignedExtensions } from './signedExtensions';
 
-import runtime from './runtime';
-import { signedExtensions as acalaSignedExtensions } from './signedExtensions';
-import stakingPool from './stakingPool';
-import support from './support';
+import * as subgameDefs from './defs';
 
-import acalaVersioned from './spec/acala';
-import mandalaVersioned from './spec/mandala';
-import karuraVersioned from './spec/karura';
+import subgameVersioned from './spec/subgame';
+import subgameStagingVersioned from './spec/subgame_staging';
 
-// FIXME: currently we cannot override this in runtime definations because the code generation script cannot handle overrides
-// This will make it behave correctly in runtime, but wrong types in TS defination.
 const additionalOverride = {
   Keys: 'SessionKeys1'
 };
 
-const acalaDefs = {
-  accounts,
-  auctionManager,
-  cdpEngine,
-  collatorSelection,
-  dex,
-  evm,
-  homa,
-  homaValidatorList,
-  incentives,
-  loans,
-  nft,
-  nomineesElection,
-  primitives,
-  runtime,
-  stakingPool,
-  support,
-
-  // ecosystem
-  renvmBridge,
-  chainBridge,
-  chainSafeTransfer
-};
-
 export const types = {
-  ...ormlTypes,
-  ...typesFromDefs(acalaDefs),
+  ...typesFromDefs(subgameDefs),
   ...additionalOverride
 };
 
-export const rpc = jsonrpcFromDefs(acalaDefs, { ...ormlRpc });
-export const typesAlias = typesAliasFromDefs(acalaDefs, { ...ormlAlias });
+export const rpc = jsonrpcFromDefs(subgameDefs);
+export const typesAlias = typesAliasFromDefs(subgameDefs);
 
 function getBundle(versioned: OverrideVersionedType[]) {
   return {
@@ -89,19 +42,16 @@ function getBundle(versioned: OverrideVersionedType[]) {
 
 export const typesBundle = {
   spec: {
-    acala: getBundle(acalaVersioned),
-    mandala: getBundle(mandalaVersioned),
-    karura: getBundle(karuraVersioned)
+    subgame: getBundle(subgameVersioned),
+    subgame_staging: getBundle(subgameStagingVersioned)
   }
 };
 
-// Type overrides have priority issues
 export const typesBundleForPolkadot = {
   spec: {
-    acala: getBundle(acalaVersioned),
-    mandala: getBundle(mandalaVersioned),
-    karura: getBundle(karuraVersioned)
+    subgame: getBundle(subgameVersioned),
+    subgame_staging: getBundle(subgameStagingVersioned)
   }
 };
 
-export const signedExtensions = acalaSignedExtensions;
+export const signedExtensions = subgameSignedExtensions;

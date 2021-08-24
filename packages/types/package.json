@@ -1,27 +1,35 @@
 {
-  "name": "@acala-network/types",
-  "version": "2.0.2-4",
-  "description": "Polkadot.js type definations for Acala Network",
-  "main": "index.js",
-  "author": "Acala Developers <hello@acala.network>",
+  "name": "@subgame-network/types",
+  "version": "0.0.1",
+  "description": "SubGame JS types",
+  "keywords": [
+    "Polkadot",
+    "SubGame",
+    "JsonRPC"
+  ],
+  "author": "SubGame Developers",
+  "contributors": [],
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "repository": "https://github.com/AcalaNetwork/acala.js.git",
-  "bugs": {
-    "url": "https://github.com/AcalaNetwork/acala.js/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubGame-Network/subgame.js.git"
   },
-  "homepage": "https://github.com/AcalaNetwork/acala.js",
+  "bugs": {
+    "url": "https://github.com/SubGame-Network/subgame.js/issues"
+  },
+  "homepage": "https://github.com/SubGame-Network/subgame.js/tree/master/packages/types#readme",
   "dependencies": {
-    "@acala-network/type-definitions": "2.0.2-4",
     "@babel/runtime": "^7.10.2",
     "@open-web3/api-mobx": "^0.9.4-19",
     "@open-web3/orml-types": "^0.9.4-19",
-    "@polkadot/api": "^5.2.1",
-    "@polkadot/typegen": "^5.2.1",
-    "@polkadot/types": "^5.2.1"
+    "@polkadot/api": "^4.12.1",
+    "@polkadot/typegen": "^4.12.1",
+    "@polkadot/types": "^4.12.1",
+    "@subgame-network/type-definitions": "^0.0.1"
   },
   "devDependencies": {
     "@types/websocket": "^1.0.0",

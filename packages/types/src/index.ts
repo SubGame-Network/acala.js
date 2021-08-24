@@ -1,10 +1,10 @@
 import {
-  typesBundle as acalaTypesBundle,
-  types as acalaTypes,
-  typesAlias as acalaTypeAlias,
-  rpc as acalaRpc,
-  signedExtensions as acalaSignedExtensions
-} from '@acala-network/type-definitions';
+  typesBundle as subgameTypesBundle,
+  types as subgameTypes,
+  typesAlias as subgameTypeAlias,
+  rpc as subgameRpc,
+  signedExtensions as subgameSignedExtensions
+} from '@subgame-network/type-definitions';
 import {
   OverrideBundleType,
   OverrideModuleType,
@@ -20,14 +20,14 @@ import './interfaces/augment-api-rpc';
 import './interfaces/augment-api-tx';
 import './interfaces/augment-types';
 
-export * from './interfaces/augment-api-mobx';
+export * from './interfaces/augment-api-events';
 
-export const types: RegistryTypes = acalaTypes;
+export const types: RegistryTypes = subgameTypes;
 
-export const rpc: Record<string, Record<string, DefinitionRpc | DefinitionRpcSub>> = acalaRpc;
+export const rpc: Record<string, Record<string, DefinitionRpc | DefinitionRpcSub>> = subgameRpc;
 
-export const typesAlias: Record<string, OverrideModuleType> = acalaTypeAlias;
+export const typesAlias: Record<string, OverrideModuleType> = subgameTypeAlias;
 
-export const typesBundle = acalaTypesBundle as unknown as OverrideBundleType;
+export const typesBundle = subgameTypesBundle as unknown as OverrideBundleType;
 
-export const signedExtensions = acalaSignedExtensions;
+export const signedExtensions = subgameSignedExtensions;

@@ -1,5 +1,5 @@
-import { types, typesBundleForPolkadot, rpc } from '@acala-network/type-definitions';
-import fs from 'fs';
+import { types, typesBundleForPolkadot, rpc } from '@subgame-network/type-definitions';
+import * as fs from 'fs';
 
 fs.writeFileSync('packages/type-definitions/src/json/types.json', JSON.stringify(types, null, 4));
 fs.writeFileSync(

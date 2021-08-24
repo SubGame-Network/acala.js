@@ -1,62 +1,49 @@
-import { derive as ormlDerives } from '@open-web3/orml-api-derive';
-import { derive as acalaDerives } from '@acala-network/api-derive';
+// Copyright 2021 @subgame-network/api authors & contributors
+// This software may be modified and distributed under the terms
+// of the Apache-2.0 license. See the LICENSE file for details.
+
 import {
-  rpc as acalaRpc,
-  types as acalaTypes,
-  typesAlias as acalaTypesAlias,
-  typesBundle as acalaTypesBundle,
-  signedExtensions as acalaSignedExtensions
-} from '@acala-network/types';
+  rpc as subgameRpc,
+  signedExtensions as subgameSignedExtensions,
+  types as subgameTypes,
+  typesAlias as subgameTypeAlias,
+  typesBundle as subgameTypesBundle
+} from '@subgame-network/types';
 import { ApiOptions } from '@polkadot/api/types';
 
 export const defaultOptions: ApiOptions = {
-  types: acalaTypes,
-  rpc: acalaRpc
+  types: subgameTypes,
+  rpc: subgameRpc
 };
 
 export const options = ({
-  types = {},
   rpc = {},
-  typesAlias = {},
+  types = {},
   typesBundle = {},
+  typesAlias = {},
   signedExtensions,
   ...otherOptions
 }: ApiOptions = {}): ApiOptions => ({
-  types: {
-    ...types
-  },
   rpc: {
-    ...acalaRpc,
+    ...subgameRpc,
     ...rpc
   },
-  typesAlias: {
-    ...acalaTypesAlias,
-    ...typesAlias
+  types: {
+    ...subgameTypes,
+    ...types
   },
-  derives: {
-    ...ormlDerives,
-    ...acalaDerives
+  typesAlias: {
+    ...subgameTypeAlias,
+    ...typesAlias
   },
   typesBundle: {
     ...typesBundle,
     spec: {
-      ...typesBundle.spec,
-      acala: {
-        ...acalaTypesBundle?.spec?.acala,
-        ...typesBundle?.spec?.acala
-      },
-      mandala: {
-        ...acalaTypesBundle?.spec?.mandala,
-        ...typesBundle?.spec?.mandala
-      },
-      karura: {
-        ...acalaTypesBundle?.spec?.karura,
-        ...typesBundle?.spec?.mandala
-      }
+      ...subgameTypesBundle
     }
   },
   signedExtensions: {
-    ...acalaSignedExtensions,
+    ...subgameSignedExtensions,
     ...signedExtensions
   },
   ...otherOptions

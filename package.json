@@ -1,5 +1,7 @@
 {
-  "version": "2.0.2-4",
+  "repository": "https://github.com/SubGame-Network/subgame.js",
+  "author": "SubGame Developers",
+  "license": "Apache-2",
   "private": true,
   "engines": {
     "yarn": "^1.10.1"
@@ -8,12 +10,12 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^5.2.1",
-    "@polkadot/types": "^5.2.1"
+    "@polkadot/api": "^4.14.1",
+    "@polkadot/types": "^4.14.1"
   },
   "scripts": {
     "build": "yarn build:interfaces && polkadot-dev-build-ts",
-    "build:release": "polkadot-ci-ghact-build",
+    "build:release": "polkadot-dev-build-ts",
     "build:interfaces": "node -r ts-node/register -r tsconfig-paths/register packages/types/scripts/generate.ts && node -r ts-node/register -r tsconfig-paths/register packages/type-definitions/scripts/generate.ts",
     "lint": "polkadot-dev-run-lint",
     "clean": "polkadot-dev-clean-build",

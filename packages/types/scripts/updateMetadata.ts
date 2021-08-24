@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 
-import fs from 'fs';
+import * as fs from 'fs';
 import { w3cwebsocket as WebSocket } from 'websocket';
 
 const main = (): void => {
-  const endpoint = 'ws://localhost:9944';
+  const endpoint = 'wss://staging.subgame.org';
   console.log('Connecting to ', endpoint);
   const ws = new WebSocket(endpoint);
   ws.onopen = (): void => {

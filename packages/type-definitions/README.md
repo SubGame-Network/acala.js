@@ -1,3 +1,3 @@
-# @acala-network/type-definitions
+# @subgame-network/type-definitions
 
-Polkadot.js type definations for Acala Network
+Polkadot.js type definations for SubGame Network
