@@ -2,6 +2,7 @@
 // @ts-nocheck
 
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
+import * as fs from 'fs';
 import { Metadata } from '@polkadot/metadata';
 import { TypeRegistry } from '@polkadot/types/create';
 import { generateInterfaceTypes } from '@polkadot/typegen/generate/interfaceRegistry';
@@ -64,3 +65,16 @@ generateDefaultQuery('packages/types/src/interfaces/augment-api-query.ts', metad
 generateDefaultRpc('packages/types/src/interfaces/augment-api-rpc.ts', definations);
 generateDefaultEvents('packages/types/src/interfaces/augment-api-events.ts', metadata, definations);
 generateDefaultErrors('packages/types/src/interfaces/augment-api-errors.ts', metadata, definations);
+
+fs.writeFileSync(
+  'packages/types/src/interfaces/augment-api.ts',
+  `// Auto-generated , do not edit
+/* eslint-disable */
+
+import '@polkadot/api/augment/rpc';
+import './augment-api-consts';
+import './augment-api-query';
+import './augment-api-rpc';
+import './augment-api-tx';
+`
+);
