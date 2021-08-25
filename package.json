@@ -15,7 +15,10 @@
     "@polkadot/types": "^4.14.1"
   },
   "scripts": {
+    "format": "eslint '**/*.ts' --fix --ignore-pattern node_modules/",
+    "genfiles": "ts-node ./script/genfiles.ts",
     "build": "yarn build:interfaces && polkadot-dev-build-ts",
+    "build:gen": "yarn genfiles && yarn format && yarn build",
     "build:release": "polkadot-dev-build-ts",
     "build:interfaces": "node -r ts-node/register -r tsconfig-paths/register packages/types/scripts/generate.ts && node -r ts-node/register -r tsconfig-paths/register packages/type-definitions/scripts/generate.ts",
     "lint": "polkadot-dev-run-lint",
@@ -32,6 +35,7 @@
     "@open-web3/dev-config": "^0.1.13",
     "@open-web3/util": "^0.9.4-19",
     "@types/jest": "^25.2.3",
+    "eslint": "^7.32.0",
     "ts-node": "^8.6.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.3.5"

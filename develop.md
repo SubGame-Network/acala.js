@@ -1,5 +1,50 @@
 # 如何为一个模组新增类型
 
+## 自动添加
+
+至 `script/modules.ts` 依格式新增对应模组的类型。
+
+范例:
+```ts
+import { RegistryTypes } from '@polkadot/types/types/registry';
+import type { DefinitionRpc, DefinitionRpcSub } from '@polkadot/types/types';
+
+const modules: {
+  [moduleName: string]: {
+    rpc: Record<string, Record<string, DefinitionRpc | DefinitionRpcSub>>;
+    types: RegistryTypes;
+  };
+} = {
+  // 依 key = module 名称的方式新增新的类型定义
+  myModule: {
+    rpc: {},
+    types: {
+      MyType: 'AccountId',
+      MyDetail: {
+        name: 'MyType',
+      }
+    }
+  },
+
+  chips: {
+    rpc: {},
+    types: {
+      ChipBalance: 'u128',
+      ChipsDetail: {
+        balance: 'ChipBalance',
+        reserve: 'ChipBalance'
+      }
+    }
+  },
+};
+
+export default modules;
+```
+接着运行 ``yarn build:all``
+发布新类型请看最后面的脚本说明
+
+## 手動逐步添加
+
 至 `packages/type-definitions/defs` 资料夹底下根据模组名称建立一个 `*.ts` 档案。
 
 范例:
@@ -83,7 +128,7 @@ const metadata = filterModules(
 );
 ```
 
-# 运行脚本
+# 脚本说明
 
 ## `yarn update-metadata`
 
@@ -92,6 +137,11 @@ const metadata = filterModules(
 ## `yarn build`
 
 运行此脚本进行建立类型定义以及打包档案。
+注意，此脚本必须先按照手动添加的方式添加类型档案后才能运行。
+
+## `yarn build:all`
+
+此脚本会自动根据 `script/module.ts` 里面的内容自动生成档案，并进行 eslint 格式化，最后运行 `yarn build` 打包出可发布的档案。
 
 ## `lenra version`
 

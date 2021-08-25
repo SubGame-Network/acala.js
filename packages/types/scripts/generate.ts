@@ -23,6 +23,13 @@ import * as defaultDefinations from '@polkadot/types/interfaces/definitions';
 import * as ormlDefinations from '@open-web3/orml-types/interfaces/definitions';
 
 import * as subgameDefinations from '../src/interfaces/definitions';
+import modules from '../../../script/modules';
+
+const modulesNames = Object.keys(modules).map((key) => {
+  const keyChars = key.split('');
+  keyChars[0] = keyChars[0].toLocaleUpperCase();
+  return keyChars.join('');
+});
 
 // Only keep our own modules to avoid confllicts with the one provided by polkadot.js
 // TODO: make an issue on polkadot.js
@@ -46,10 +53,7 @@ const definations = {
   '@subgame/types/interfaces': subgameDefinations
 } as any;
 
-const metadata = filterModules(
-  ['SubgameAssets', 'Bridge', 'Chips', 'GameCenter', 'GameGuessHashModule', 'GameTemplates', 'Stake', 'Swaps'],
-  definations
-);
+const metadata = filterModules(modulesNames, definations);
 
 generateTsDef(definations, 'packages/types/src/interfaces', '@subgame/types/interfaces');
 generateInterfaceTypes(definations, 'packages/types/src/interfaces/augment-types.ts');

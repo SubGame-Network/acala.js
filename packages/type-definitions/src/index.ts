@@ -7,7 +7,6 @@ import { signedExtensions as subgameSignedExtensions } from './signedExtensions'
 import * as subgameDefs from './defs';
 
 import subgameVersioned from './spec/subgame';
-import subgameStagingVersioned from './spec/subgame_staging';
 
 const additionalOverride = {
   Keys: 'SessionKeys1'
@@ -42,15 +41,13 @@ function getBundle(versioned: OverrideVersionedType[]) {
 
 export const typesBundle = {
   spec: {
-    subgame: getBundle(subgameVersioned),
-    subgame_staging: getBundle(subgameStagingVersioned)
+    subgame: getBundle(subgameVersioned)
   }
 };
 
 export const typesBundleForPolkadot = {
   spec: {
-    subgame: getBundle(subgameVersioned),
-    subgame_staging: getBundle(subgameStagingVersioned)
+    subgame: getBundle(subgameVersioned)
   }
 };
 

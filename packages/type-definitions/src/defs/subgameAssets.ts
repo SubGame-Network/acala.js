@@ -2,12 +2,7 @@ export default {
   rpc: {},
   types: {
     SGAssetBalance: 'u64',
-    SubGameAssetMetadata: {
-      deposit: 'DepositBalance',
-      name: 'Vec<u8>',
-      symbol: 'Vec<u8>',
-      decimals: 'u8'
-    },
+    SubGameAssetMetadata: { deposit: 'DepositBalance', name: 'Vec<u8>', symbol: 'Vec<u8>', decimals: 'u8' },
     SubGameAssetDetails: {
       owner: 'AccountId',
       issuer: 'AccountId',
@@ -21,10 +16,6 @@ export default {
       accounts: 'u32',
       isFrozen: 'bool'
     },
-    SusGameAssetBalance: {
-      balance: 'u64',
-      isFrozen: 'bool',
-      isZombie: 'bool'
-    }
+    SusGameAssetBalance: { balance: 'u64', isFrozen: 'bool', isZombie: 'bool' }
   }
 };
