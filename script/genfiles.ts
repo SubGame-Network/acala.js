@@ -7,6 +7,12 @@ const main = () => {
 
   console.log('Start creating module definition file');
 
+  fs.rmSync('packages/type-definitions/src/defs', { recursive: true, force: true });
+  fs.rmSync('packages/types/src/interfaces', { recursive: true, force: true });
+
+  fs.mkdirSync('packages/type-definitions/src/defs');
+  fs.mkdirSync('packages/types/src/interfaces');
+
   for (const key in modules) {
     const module = modules[key];
     if (module) {
@@ -17,17 +23,13 @@ const main = () => {
         `
       );
 
-      const moduleInterfacesDirPath = `packages/types/src/interfaces/${key}`;
-
-      if (!fs.existsSync(moduleInterfacesDirPath)) {
-        fs.mkdirSync(moduleInterfacesDirPath);
-      }
+      fs.mkdirSync(`packages/types/src/interfaces/${key}`);
       fs.writeFileSync(
         `packages/types/src/interfaces/${key}/definitions.ts`,
         `
       import { Definitions } from '@polkadot/types/types';
       import ${key} from '@subgame/type-definitions/defs/${key}';
-      
+
       export default ${key} as Definitions;
       `
       );

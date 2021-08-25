@@ -65,7 +65,6 @@ import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame/types/inte
 import type { Template, TemplateName } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
-import type { Swap, SwapId, TokenBalance, TokenId } from '@subgame/types/interfaces/swaps';
 
 declare module '@polkadot/types/types/registry' {
   export interface InterfaceTypes {
@@ -143,12 +142,9 @@ declare module '@polkadot/types/types/registry' {
     'Compact<SpanIndex>': Compact<SpanIndex>;
     'Compact<StrikeCount>': Compact<StrikeCount>;
     'Compact<SubId>': Compact<SubId>;
-    'Compact<SwapId>': Compact<SwapId>;
     'Compact<TAssetBalance>': Compact<TAssetBalance>;
     'Compact<TAssetDepositBalance>': Compact<TAssetDepositBalance>;
     'Compact<TemplateName>': Compact<TemplateName>;
-    'Compact<TokenBalance>': Compact<TokenBalance>;
-    'Compact<TokenId>': Compact<TokenId>;
     'Compact<TransactionPriority>': Compact<TransactionPriority>;
     'Compact<TrieIndex>': Compact<TrieIndex>;
     'Compact<u128>': Compact<u128>;
@@ -946,8 +942,6 @@ declare module '@polkadot/types/types/registry' {
     'Option<SubId>': Option<SubId>;
     'Option<SubmissionIndicesOf>': Option<SubmissionIndicesOf>;
     'Option<SusGameAssetBalance>': Option<SusGameAssetBalance>;
-    'Option<Swap>': Option<Swap>;
-    'Option<SwapId>': Option<SwapId>;
     'Option<SyncState>': Option<SyncState>;
     'Option<SystemInherentData>': Option<SystemInherentData>;
     'Option<SystemOrigin>': Option<SystemOrigin>;
@@ -959,9 +953,7 @@ declare module '@polkadot/types/types/registry' {
     'Option<TemplateName>': Option<TemplateName>;
     'Option<Text>': Option<Text>;
     'Option<Timepoint>': Option<Timepoint>;
-    'Option<TokenBalance>': Option<TokenBalance>;
     'Option<TokenError>': Option<TokenError>;
-    'Option<TokenId>': Option<TokenId>;
     'Option<TombstoneContractInfo>': Option<TombstoneContractInfo>;
     'Option<TraceBlockResponse>': Option<TraceBlockResponse>;
     'Option<TraceError>': Option<TraceError>;
@@ -1846,8 +1838,6 @@ declare module '@polkadot/types/types/registry' {
     'Vec<SubId>': Vec<SubId>;
     'Vec<SubmissionIndicesOf>': Vec<SubmissionIndicesOf>;
     'Vec<SusGameAssetBalance>': Vec<SusGameAssetBalance>;
-    'Vec<Swap>': Vec<Swap>;
-    'Vec<SwapId>': Vec<SwapId>;
     'Vec<SyncState>': Vec<SyncState>;
     'Vec<SystemInherentData>': Vec<SystemInherentData>;
     'Vec<SystemOrigin>': Vec<SystemOrigin>;
@@ -1859,9 +1849,7 @@ declare module '@polkadot/types/types/registry' {
     'Vec<TemplateName>': Vec<TemplateName>;
     'Vec<Text>': Vec<Text>;
     'Vec<Timepoint>': Vec<Timepoint>;
-    'Vec<TokenBalance>': Vec<TokenBalance>;
     'Vec<TokenError>': Vec<TokenError>;
-    'Vec<TokenId>': Vec<TokenId>;
     'Vec<TombstoneContractInfo>': Vec<TombstoneContractInfo>;
     'Vec<TraceBlockResponse>': Vec<TraceBlockResponse>;
     'Vec<TraceError>': Vec<TraceError>;
@@ -2746,8 +2734,6 @@ declare module '@polkadot/types/types/registry' {
     SubId: SubId;
     SubmissionIndicesOf: SubmissionIndicesOf;
     SusGameAssetBalance: SusGameAssetBalance;
-    Swap: Swap;
-    SwapId: SwapId;
     SyncState: SyncState;
     SystemInherentData: SystemInherentData;
     SystemOrigin: SystemOrigin;
@@ -2759,9 +2745,7 @@ declare module '@polkadot/types/types/registry' {
     TemplateName: TemplateName;
     Text: Text;
     Timepoint: Timepoint;
-    TokenBalance: TokenBalance;
     TokenError: TokenError;
-    TokenId: TokenId;
     TombstoneContractInfo: TombstoneContractInfo;
     TraceBlockResponse: TraceBlockResponse;
     TraceError: TraceError;

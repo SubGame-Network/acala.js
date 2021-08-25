@@ -4,11 +4,10 @@
 import type { Bytes, Compact, u128, u32, u8 } from '@polkadot/types';
 import type { AnyNumber } from '@polkadot/types/types';
 import type { Extrinsic } from '@polkadot/types/interfaces/extrinsics';
-import type { AccountId, AssetId, BalanceOf, BlockNumber, Call, LookupSource } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, BalanceOf, Call, LookupSource } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
-import type { SwapId, TokenBalance, TokenId } from '@subgame/types/interfaces/swaps';
 import type { ApiTypes, SubmittableExtrinsic } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/submittable' {
@@ -363,43 +362,6 @@ declare module '@polkadot/api/types/submittable' {
        * Weight: `O(1)`
        **/
       transferOwnership: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, owner: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource]>;
-      /**
-       * Generic tx
-       **/
-      [key: string]: SubmittableExtrinsicFunction<ApiType>;
-    };
-    swaps: {
-      addLiquidity: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, currencyAmount: BalanceOf | AnyNumber | Uint8Array, minLiquidity: TokenBalance | AnyNumber | Uint8Array, maxTokens: TokenBalance | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, BalanceOf, TokenBalance, TokenBalance, BlockNumber]>;
-      createSwap: AugmentedSubmittable<(tokenId: TokenId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [TokenId]>;
-      /**
-       * Converts currency to tokens.
-       * 
-       * User specifies the exact amount of currency to spend and the minimum
-       * tokens to be returned.
-       **/
-      currencyToTokensInput: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, currency: BalanceOf | AnyNumber | Uint8Array, minTokens: TokenBalance | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array, recipient: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, BalanceOf, TokenBalance, BlockNumber, AccountId]>;
-      /**
-       * Converts currency to tokens.
-       * 
-       * User specifies the maximum currency to spend and the exact amount of
-       * tokens to be returned.
-       **/
-      currencyToTokensOutput: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, tokensBought: TokenBalance | AnyNumber | Uint8Array, maxCurrency: BalanceOf | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array, recipient: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, TokenBalance, BalanceOf, BlockNumber, AccountId]>;
-      removeLiquidity: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, sharesToBurn: TokenBalance | AnyNumber | Uint8Array, minCurrency: BalanceOf | AnyNumber | Uint8Array, minTokens: TokenBalance | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, TokenBalance, BalanceOf, TokenBalance, BlockNumber]>;
-      /**
-       * Converts tokens to currency.
-       * 
-       * The user specifies exact amount of tokens sold and minimum amount of
-       * currency that is returned.
-       **/
-      tokensToCurrencyInput: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, tokensSold: TokenBalance | AnyNumber | Uint8Array, minCurrency: BalanceOf | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array, recipient: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, TokenBalance, BalanceOf, BlockNumber, AccountId]>;
-      /**
-       * Converts tokens to currency.
-       * 
-       * The user specifies the maximum tokens to swap and the exact
-       * currency to be returned.
-       **/
-      tokensToCurrencyOutput: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, currencyBought: BalanceOf | AnyNumber | Uint8Array, maxTokens: TokenBalance | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array, recipient: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, BalanceOf, TokenBalance, BlockNumber, AccountId]>;
       /**
        * Generic tx
        **/

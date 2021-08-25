@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, u128, u32, u8 } from '@polkadot/types';
+import type { Bytes, u32, u8 } from '@polkadot/types';
 import type { BlockHash } from '@polkadot/types/interfaces/chain';
 import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
@@ -160,13 +160,6 @@ declare module '@polkadot/api/types/events' {
        * Some assets were transferred. \[asset_id, from, to, amount\]
        **/
       Transferred: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, SGAssetBalance]>;
-      /**
-       * Generic event
-       **/
-      [key: string]: AugmentedEvent<ApiType>;
-    };
-    swaps: {
-      SwapCreated: AugmentedEvent<ApiType, [u8, u128]>;
       /**
        * Generic event
        **/

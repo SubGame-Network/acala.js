@@ -82,14 +82,6 @@
                             "Account": "Vec<u8>",
                             "ReferrerAccount": "Vec<u8>"
                         },
-                        "TokenBalance": "u32",
-                        "SwapId": "u32",
-                        "TokenId": "u32",
-                        "Swap": {
-                            "token_id": "TokenId",
-                            "swap_token": "TokenId",
-                            "account": "AccountId"
-                        },
                         "Keys": "SessionKeys1"
                     }
                 }

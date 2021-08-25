@@ -11,7 +11,6 @@ import type { BetInfo, GameIndex, GameInfo } from '@subgame/types/interfaces/gam
 import type { Template } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
-import type { Swap, SwapId, TokenId } from '@subgame/types/interfaces/swaps';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/storage' {
@@ -116,15 +115,6 @@ declare module '@polkadot/api/types/storage' {
        * Metadata of an asset.
        **/
       metadata: AugmentedQuery<ApiType, (arg: AssetId | AnyNumber | Uint8Array) => Observable<SubGameAssetMetadata>, [AssetId]> & QueryableStorageEntry<ApiType, [AssetId]>;
-      /**
-       * Generic query
-       **/
-      [key: string]: QueryableStorageEntry<ApiType>;
-    };
-    swaps: {
-      swapCount: AugmentedQuery<ApiType, () => Observable<SwapId>, []> & QueryableStorageEntry<ApiType, []>;
-      swaps: AugmentedQuery<ApiType, (arg: SwapId | AnyNumber | Uint8Array) => Observable<Option<Swap>>, [SwapId]> & QueryableStorageEntry<ApiType, [SwapId]>;
-      tokenToSwap: AugmentedQuery<ApiType, (arg: TokenId | AnyNumber | Uint8Array) => Observable<SwapId>, [TokenId]> & QueryableStorageEntry<ApiType, [TokenId]>;
       /**
        * Generic query
        **/

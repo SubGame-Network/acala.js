@@ -5,4 +5,3 @@ export { default as gameCenter } from './defs/gameCenter';
 export { default as gameGuessHashModule } from './defs/gameGuessHashModule';
 export { default as gameTemplates } from './defs/gameTemplates';
 export { default as stake } from './defs/stake';
-export { default as swaps } from './defs/swaps';
