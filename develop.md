@@ -40,7 +40,7 @@ const modules: {
 
 export default modules;
 ```
-接着运行 ``yarn build:all``
+接着运行 ``yarn gen``
 发布新类型请看最后面的脚本说明
 
 ## 手動逐步添加
@@ -137,20 +137,29 @@ const metadata = filterModules(
 ## `yarn build`
 
 运行此脚本进行建立类型定义以及打包档案。
-注意，此脚本必须先按照手动添加的方式添加类型档案后才能运行。
+注意，请透过手动添加或是运行`yarn gen`之后，运行此脚本才会有效
 
-## `yarn build:all`
+## `yarn gen`
 
-此脚本会自动根据 `script/module.ts` 里面的内容自动生成档案，并进行 eslint 格式化，最后运行 `yarn build` 打包出可发布的档案。
+此脚本会自动根据 `script/module.ts` 里面的内容自动生成 `@polkadot/typegen` 所需要的档案，并进行 eslint 格式化。
 
-## `lenra version`
+## `lerna version`
 
-透过 lenra 建立一个新的版本号，并推送 tag 至 github。
+透过 lerna 建立一个新的版本号，并推送 tag 至 github。
 
-[lenra version](https://github.com/lerna/lerna/tree/main/commands/version#readme)
+[lerna version](https://github.com/lerna/lerna/tree/main/commands/version#readme)
 
-## `lenra publish from-git --contents build`
+## `lerna publish from-git --contents build`
 
 这个指令会以 git 最新的 tag 作为版本号，并指定 packages 里面的 build 作为发布目标，发布到 npm 上面。
 
-[lenra publish](https://github.com/lerna/lerna/tree/main/commands/publish#readme)
+[lerna publish](https://github.com/lerna/lerna/tree/main/commands/publish#readme)
+
+# 发布流程
+
+1. 手动或自动添加完类型
+2. 运行 `yarn build:interfaces`，建立各模组的 interface 。
+3. 运行 `yarn lint`，检查格式。
+4. 运行 `lerna version`，取得新版号 (要先 commit 到 git)。
+5. 运行 `yarn build:release`，打包可发布的档案包。
+5. 运行 `lerna publish from-git --contents build`，发布至 npm。
