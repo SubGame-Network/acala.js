@@ -11,8 +11,8 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^4.14.1",
-    "@polkadot/types": "^4.14.1"
+    "@polkadot/api": "^5.6.1",
+    "@polkadot/types": "^5.6.1"
   },
   "scripts": {
     "format": "eslint '**/*.ts' --fix --ignore-pattern node_modules/",
