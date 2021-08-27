@@ -134,9 +134,14 @@ const metadata = filterModules(
 
 运行此脚本从节点抓取元数据，稍后会从元数据进行类型定义。
 
-## `yarn build`
+## `yarn build:interfaces`
 
-运行此脚本进行建立类型定义以及打包档案。
+运行此脚本进行建立类型定义档案。
+注意，请透过手动添加或是运行`yarn gen`之后，运行此脚本才会有效
+
+## `yarn build:release`
+
+打包可发布的档案包。
 注意，请透过手动添加或是运行`yarn gen`之后，运行此脚本才会有效
 
 ## `yarn gen`
@@ -162,4 +167,4 @@ const metadata = filterModules(
 3. 运行 `yarn lint`，检查格式。
 4. 运行 `lerna version`，取得新版号 (要先 commit 到 git)。
 5. 运行 `yarn build:release`，打包可发布的档案包。
-5. 运行 `lerna publish from-git --contents build`，发布至 npm。
+6. 运行 `lerna publish from-git --contents build`，发布至 npm。
