@@ -2248,7 +2248,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.12.5
     "@polkadot/api": ^5.6.1
-    "@subgame/types": ^0.0.5
+    "@subgame/types": ^0.0.6
   languageName: unknown
   linkType: soft
 
@@ -2269,7 +2269,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@subgame/type-definitions@^0.0.5, @subgame/type-definitions@workspace:packages/type-definitions":
+"@subgame/type-definitions@^0.0.6, @subgame/type-definitions@workspace:packages/type-definitions":
   version: 0.0.0-use.local
   resolution: "@subgame/type-definitions@workspace:packages/type-definitions"
   dependencies:
@@ -2277,7 +2277,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@subgame/types@^0.0.5, @subgame/types@workspace:packages/types":
+"@subgame/types@^0.0.6, @subgame/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@subgame/types@workspace:packages/types"
   dependencies:
@@ -2287,7 +2287,7 @@ __metadata:
     "@polkadot/api": ^5.6.1
     "@polkadot/typegen": ^5.6.1
     "@polkadot/types": ^5.6.1
-    "@subgame/type-definitions": ^0.0.5
+    "@subgame/type-definitions": ^0.0.6
     "@types/websocket": ^1.0.0
     websocket: ^1.0.31
   languageName: unknown
