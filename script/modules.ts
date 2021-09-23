@@ -11,7 +11,6 @@ const modules: {
     rpc: {},
     types: {
       SGAssetBalance: 'u64',
-      DepositBalance: 'u64',
       SubGameAssetMetadata: {
         deposit: 'DepositBalance',
         name: 'Vec<u8>',

@@ -2,7 +2,6 @@ export default {
   rpc: {},
   types: {
     SGAssetBalance: 'u64',
-    DepositBalance: 'u64',
     SubGameAssetMetadata: { deposit: 'DepositBalance', name: 'Vec<u8>', symbol: 'Vec<u8>', decimals: 'u8' },
     SubGameAssetDetails: {
       owner: 'AccountId',

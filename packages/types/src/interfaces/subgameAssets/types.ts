@@ -3,9 +3,7 @@
 
 import type { Bytes, Struct, bool, u32, u64, u8 } from '@polkadot/types';
 import type { AccountId } from '@polkadot/types/interfaces/runtime';
-
-/** @name DepositBalance */
-export interface DepositBalance extends u64 {}
+import type { DepositBalance } from '@polkadot/types/interfaces/uniques';
 
 /** @name SGAssetBalance */
 export interface SGAssetBalance extends u64 {}
