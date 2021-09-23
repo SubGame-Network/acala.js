@@ -11,6 +11,7 @@ const modules: {
     rpc: {},
     types: {
       SGAssetBalance: 'u64',
+      DepositBalance: 'u64',
       SubGameAssetMetadata: {
         deposit: 'DepositBalance',
         name: 'Vec<u8>',
@@ -107,6 +108,20 @@ const modules: {
       UserInfo: {
         Account: 'Vec<u8>',
         ReferrerAccount: 'Vec<u8>'
+      }
+    }
+  },
+  swap: {
+    rpc: {},
+    types: {
+      SwapId: 'u32',
+      SwapPoolDetails: {
+        swap_id: 'u32',
+        account: 'AccountId',
+        asset_a: 'u32',
+        asset_b: 'u32',
+        asset_lp: 'u32',
+        k: 'u64'
       }
     }
   }

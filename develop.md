@@ -165,6 +165,7 @@ const metadata = filterModules(
 1. 手动或自动添加完类型
 2. 运行 `yarn build:interfaces`，建立各模组的 interface 。
 3. 运行 `yarn lint`，检查格式。
-4. 运行 `lerna version`，取得新版号 (要先 commit 到 git)。
+4. commit 到 git。
+4. 运行 `lerna version`，取得新版号。
 5. 运行 `yarn build:release`，打包可发布的档案包。
 6. 运行 `lerna publish from-git --contents build`，发布至 npm。

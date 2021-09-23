@@ -8,3 +8,4 @@ export * from './gameCenter/types';
 export * from './gameGuessHashModule/types';
 export * from './gameTemplates/types';
 export * from './stake/types';
+export * from './swap/types';
