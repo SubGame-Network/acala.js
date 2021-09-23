@@ -1,6 +1,6 @@
 {
   "name": "@subgame/api",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "create api to subgame network",
   "main": "index.js",
   "keywords": [
@@ -29,6 +29,6 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@polkadot/api": "^5.6.1",
-    "@subgame/types": "^0.0.8"
+    "@subgame/types": "^0.0.9"
   }
 }
