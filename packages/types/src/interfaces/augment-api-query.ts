@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 import type { Bytes, Option, Vec, u32 } from '@polkadot/types';
-import type { AnyNumber, Observable } from '@polkadot/types/types';
+import type { AnyNumber, ITuple, Observable } from '@polkadot/types/types';
 import type { AccountId, AssetId, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
 import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
 import type { ChipsDetail } from '@subgame/types/interfaces/chips';
@@ -11,6 +11,7 @@ import type { BetInfo, GameIndex, GameInfo } from '@subgame/types/interfaces/gam
 import type { Template } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { SwapId, SwapPoolDetails } from '@subgame/types/interfaces/swap';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/storage' {
@@ -115,6 +116,15 @@ declare module '@polkadot/api/types/storage' {
        * Metadata of an asset.
        **/
       metadata: AugmentedQuery<ApiType, (arg: AssetId | AnyNumber | Uint8Array) => Observable<SubGameAssetMetadata>, [AssetId]> & QueryableStorageEntry<ApiType, [AssetId]>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    swap: {
+      swapPair: AugmentedQuery<ApiType, (arg: ITuple<[AssetId, AssetId]> | [AssetId | AnyNumber | Uint8Array, AssetId | AnyNumber | Uint8Array]) => Observable<SwapId>, [ITuple<[AssetId, AssetId]>]> & QueryableStorageEntry<ApiType, [ITuple<[AssetId, AssetId]>]>;
+      swapPool: AugmentedQuery<ApiType, (arg: SwapId | AnyNumber | Uint8Array) => Observable<SwapPoolDetails>, [SwapId]> & QueryableStorageEntry<ApiType, [SwapId]>;
+      swapPoolCount: AugmentedQuery<ApiType, () => Observable<SwapId>, []> & QueryableStorageEntry<ApiType, []>;
       /**
        * Generic query
        **/

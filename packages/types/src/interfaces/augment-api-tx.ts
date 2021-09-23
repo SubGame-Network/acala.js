@@ -1,13 +1,14 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Compact, u128, u32, u8 } from '@polkadot/types';
+import type { Bytes, u128, u32, u64, u8 } from '@polkadot/types';
 import type { AnyNumber } from '@polkadot/types/types';
 import type { Extrinsic } from '@polkadot/types/interfaces/extrinsics';
-import type { AccountId, AssetId, BalanceOf, Call, LookupSource } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, BalanceOf, BlockNumber, Call } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { SwapId } from '@subgame/types/interfaces/swap';
 import type { ApiTypes, SubmittableExtrinsic } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/submittable' {
@@ -109,7 +110,7 @@ declare module '@polkadot/api/types/submittable' {
        * Weight: `O(1)`
        * Modes: Post-existence of `who`; Pre & post Zombie-status of `who`.
        **/
-      burn: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, who: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, amount: Compact<SGAssetBalance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, Compact<SGAssetBalance>]>;
+      burn: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, who: AccountId | string | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, SGAssetBalance]>;
       /**
        * Issue a new class of fungible assets from a public origin.
        * 
@@ -135,7 +136,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      create: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, admin: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, maxZombies: u32 | AnyNumber | Uint8Array, minBalance: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, u32, SGAssetBalance]>;
+      create: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, admin: AccountId | string | Uint8Array, maxZombies: u32 | AnyNumber | Uint8Array, minBalance: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, u32, SGAssetBalance]>;
       /**
        * Destroy a class of fungible assets owned by the sender.
        * 
@@ -148,7 +149,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(z)` where `z` is the number of zombie accounts.
        **/
-      destroy: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, zombiesWitness: Compact<u32> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, Compact<u32>]>;
+      destroy: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, zombiesWitness: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, u32]>;
       /**
        * Issue a new class of fungible assets from a privileged origin.
        * 
@@ -172,7 +173,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      forceCreate: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, owner: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, maxZombies: Compact<u32> | AnyNumber | Uint8Array, minBalance: Compact<SGAssetBalance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, Compact<u32>, Compact<SGAssetBalance>]>;
+      forceCreate: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, owner: AccountId | string | Uint8Array, maxZombies: u32 | AnyNumber | Uint8Array, minBalance: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, u32, SGAssetBalance]>;
       /**
        * Destroy a class of fungible assets.
        * 
@@ -185,7 +186,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      forceDestroy: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, zombiesWitness: Compact<u32> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, Compact<u32>]>;
+      forceDestroy: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, zombiesWitness: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, u32]>;
       /**
        * Move some assets from one account to another.
        * 
@@ -207,7 +208,7 @@ declare module '@polkadot/api/types/submittable' {
        * Modes: Pre-existence of `dest`; Post-existence of `source`; Prior & post zombie-status
        * of `source`; Account pre-existence of `dest`.
        **/
-      forceTransfer: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, source: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, dest: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, amount: Compact<SGAssetBalance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, LookupSource, Compact<SGAssetBalance>]>;
+      forceTransfer: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, source: AccountId | string | Uint8Array, dest: AccountId | string | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, AccountId, SGAssetBalance]>;
       /**
        * Disallow further unprivileged transfers from an account.
        * 
@@ -220,7 +221,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      freeze: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, who: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource]>;
+      freeze: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, who: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId]>;
       /**
        * Disallow further unprivileged transfers for the asset class.
        * 
@@ -232,7 +233,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      freezeAsset: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>]>;
+      freezeAsset: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId]>;
       /**
        * Mint assets of a particular class.
        * 
@@ -247,7 +248,7 @@ declare module '@polkadot/api/types/submittable' {
        * Weight: `O(1)`
        * Modes: Pre-existing balance of `beneficiary`; Account pre-existence of `beneficiary`.
        **/
-      mint: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, beneficiary: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, amount: Compact<SGAssetBalance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, Compact<SGAssetBalance>]>;
+      mint: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, beneficiary: AccountId | string | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, SGAssetBalance]>;
       /**
        * Set the maximum number of zombie accounts for an asset.
        * 
@@ -264,7 +265,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      setMaxZombies: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, maxZombies: Compact<u32> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, Compact<u32>]>;
+      setMaxZombies: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, maxZombies: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, u32]>;
       /**
        * Set the metadata for an asset.
        * 
@@ -287,7 +288,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      setMetadata: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, name: Bytes | string | Uint8Array, symbol: Bytes | string | Uint8Array, decimals: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, Bytes, Bytes, u8]>;
+      setMetadata: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, name: Bytes | string | Uint8Array, symbol: Bytes | string | Uint8Array, decimals: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, Bytes, Bytes, u8]>;
       /**
        * Change the Issuer, Admin and Freezer of an asset.
        * 
@@ -302,7 +303,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      setTeam: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, issuer: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, admin: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, freezer: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, LookupSource, LookupSource]>;
+      setTeam: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, issuer: AccountId | string | Uint8Array, admin: AccountId | string | Uint8Array, freezer: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, AccountId, AccountId]>;
       /**
        * Allow unprivileged transfers from an account again.
        * 
@@ -315,7 +316,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      thaw: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, who: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource]>;
+      thaw: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, who: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId]>;
       /**
        * Allow unprivileged transfers for the asset again.
        * 
@@ -327,7 +328,7 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      thawAsset: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>]>;
+      thawAsset: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId]>;
       /**
        * Move some assets from the sender account to another.
        * 
@@ -348,7 +349,7 @@ declare module '@polkadot/api/types/submittable' {
        * Modes: Pre-existence of `target`; Post-existence of sender; Prior & post zombie-status
        * of sender; Account pre-existence of `target`.
        **/
-      transfer: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, target: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array, amount: Compact<SGAssetBalance> | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource, Compact<SGAssetBalance>]>;
+      transfer: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, target: AccountId | string | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId, SGAssetBalance]>;
       /**
        * Change the Owner of an asset.
        * 
@@ -361,7 +362,17 @@ declare module '@polkadot/api/types/submittable' {
        * 
        * Weight: `O(1)`
        **/
-      transferOwnership: AugmentedSubmittable<(id: Compact<AssetId> | AnyNumber | Uint8Array, owner: LookupSource | { Id: any } | { Index: any } | { Raw: any } | { Address32: any } | { Address20: any } | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [Compact<AssetId>, LookupSource]>;
+      transferOwnership: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, owner: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
+    swap: {
+      addLiquidity: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, dx: SGAssetBalance | AnyNumber | Uint8Array, dy: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, SGAssetBalance, SGAssetBalance]>;
+      createPool: AugmentedSubmittable<(assetX: AssetId | AnyNumber | Uint8Array, x: SGAssetBalance | AnyNumber | Uint8Array, assetY: AssetId | AnyNumber | Uint8Array, y: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, SGAssetBalance, AssetId, SGAssetBalance]>;
+      removeLiquidity: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, lpAmount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, SGAssetBalance]>;
+      swap: AugmentedSubmittable<(swapId: SwapId | AnyNumber | Uint8Array, inputAsset: AssetId | AnyNumber | Uint8Array, inputAmount: SGAssetBalance | AnyNumber | Uint8Array, outputAsset: AssetId | AnyNumber | Uint8Array, expectedOutputAmount: SGAssetBalance | AnyNumber | Uint8Array, slipage: u64 | AnyNumber | Uint8Array, deadline: BlockNumber | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [SwapId, AssetId, SGAssetBalance, AssetId, SGAssetBalance, u64, BlockNumber]>;
       /**
        * Generic tx
        **/

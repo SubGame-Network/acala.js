@@ -7,6 +7,7 @@ import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber } from '@polka
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { SwapId } from '@subgame/types/interfaces/swap';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/events' {
@@ -160,6 +161,16 @@ declare module '@polkadot/api/types/events' {
        * Some assets were transferred. \[asset_id, from, to, amount\]
        **/
       Transferred: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, SGAssetBalance]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    swap: {
+      CreatePool: AugmentedEvent<ApiType, [AccountId, SwapId, AssetId, SGAssetBalance, AssetId, SGAssetBalance, AccountId]>;
+      LiquidityAdded: AugmentedEvent<ApiType, [SwapId, AccountId, SGAssetBalance, SGAssetBalance]>;
+      LiquidityRemoved: AugmentedEvent<ApiType, [SwapId, AccountId, SGAssetBalance, SGAssetBalance, SGAssetBalance]>;
+      Swap: AugmentedEvent<ApiType, [SwapId, AccountId, AssetId, SGAssetBalance, AssetId, SGAssetBalance]>;
       /**
        * Generic event
        **/

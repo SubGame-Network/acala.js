@@ -126,6 +126,64 @@ declare module '@polkadot/api/types/errors' {
        **/
       [key: string]: AugmentedError<ApiType>;
     };
+    swap: {
+      /**
+       * Asset not found.
+       **/
+      AssetNotFound: AugmentedError<ApiType>;
+      /**
+       * Deadline hit.
+       **/
+      Deadline: AugmentedError<ApiType>;
+      /**
+       * Input duplicate asset_id.
+       **/
+      DuplicateAssetId: AugmentedError<ApiType>;
+      /**
+       * liquidity k not match error.
+       **/
+      LiquidityKError: AugmentedError<ApiType>;
+      /**
+       * No Swap exists at this Id.
+       **/
+      NoSwapExists: AugmentedError<ApiType>;
+      /**
+       * Not enough balance.
+       **/
+      NotEnoughBalance: AugmentedError<ApiType>;
+      /**
+       * Not enough liquidity to transfer.
+       **/
+      NotEnoughLiquidity: AugmentedError<ApiType>;
+      /**
+       * Not enough LP token.
+       **/
+      NotEnoughLPToken: AugmentedError<ApiType>;
+      /**
+       * Checked add swap pool count error.
+       **/
+      PoolCountError: AugmentedError<ApiType>;
+      /**
+       * Slipage hit.
+       **/
+      Slipage: AugmentedError<ApiType>;
+      /**
+       * A Swap already exists.
+       **/
+      SwapAlreadyExists: AugmentedError<ApiType>;
+      /**
+       * Zero balance supplied.
+       **/
+      ZeroBalance: AugmentedError<ApiType>;
+      /**
+       * expected swap output amount can not be zero.
+       **/
+      ZeroExpectedAmount: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
   }
 
   export interface DecoratedErrors<ApiType extends ApiTypes> extends AugmentedErrors<ApiType> {
