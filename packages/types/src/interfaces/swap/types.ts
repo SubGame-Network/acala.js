@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Struct, u32, u64 } from '@polkadot/types';
+import type { Struct, u128, u32 } from '@polkadot/types';
 import type { AccountId } from '@polkadot/types/interfaces/runtime';
 
 /** @name SwapId */
@@ -14,7 +14,7 @@ export interface SwapPoolDetails extends Struct {
   readonly asset_a: u32;
   readonly asset_b: u32;
   readonly asset_lp: u32;
-  readonly k: u64;
+  readonly swap_k: u128;
 }
 
 export type PHANTOM_SWAP = 'swap';

@@ -120,7 +120,7 @@ const modules: {
         asset_a: 'u32',
         asset_b: 'u32',
         asset_lp: 'u32',
-        k: 'u64'
+        swap_k: 'u128'
       }
     }
   }
