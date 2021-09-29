@@ -7,7 +7,7 @@ import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber } from '@polka
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
-import type { SwapId } from '@subgame/types/interfaces/swap';
+import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, SwapId, SwapPoolOwner, SwapSender } from '@subgame/types/interfaces/swap';
 import type { ApiTypes } from '@polkadot/api/types';
 
 declare module '@polkadot/api/types/events' {
@@ -167,10 +167,10 @@ declare module '@polkadot/api/types/events' {
       [key: string]: AugmentedEvent<ApiType>;
     };
     swap: {
-      CreatePool: AugmentedEvent<ApiType, [AccountId, SwapId, AssetId, SGAssetBalance, AssetId, SGAssetBalance, AccountId]>;
-      LiquidityAdded: AugmentedEvent<ApiType, [SwapId, AccountId, SGAssetBalance, SGAssetBalance]>;
-      LiquidityRemoved: AugmentedEvent<ApiType, [SwapId, AccountId, SGAssetBalance, SGAssetBalance, SGAssetBalance]>;
-      Swap: AugmentedEvent<ApiType, [SwapId, AccountId, AssetId, SGAssetBalance, AssetId, SGAssetBalance]>;
+      CreatePool: AugmentedEvent<ApiType, [SwapSender, SwapId, SwapAssetX, SwapAmountX, SwapAssetY, SwapAmountY, SwapPoolOwner]>;
+      LiquidityAdded: AugmentedEvent<ApiType, [SwapId, SwapSender, SwapAmountX, SwapAmountY]>;
+      LiquidityRemoved: AugmentedEvent<ApiType, [SwapId, SwapSender, SwapAmountLP, SwapAmountX, SwapAmountY]>;
+      Swap: AugmentedEvent<ApiType, [SwapId, SwapSender, SwapAssetX, SwapAmountX, SwapAssetY, SwapAmountY]>;
       /**
        * Generic event
        **/

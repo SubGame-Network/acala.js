@@ -65,7 +65,7 @@ import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame/types/inte
 import type { Template, TemplateName } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
-import type { SwapId, SwapPoolDetails } from '@subgame/types/interfaces/swap';
+import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, SwapId, SwapPoolDetails, SwapPoolOwner, SwapSender } from '@subgame/types/interfaces/swap';
 
 declare module '@polkadot/types/types/registry' {
   export interface InterfaceTypes {
@@ -896,8 +896,15 @@ declare module '@polkadot/types/types/registry' {
     SubmissionIndicesOf: SubmissionIndicesOf;
     Supports: Supports;
     SusGameAssetBalance: SusGameAssetBalance;
+    SwapAmountLP: SwapAmountLP;
+    SwapAmountX: SwapAmountX;
+    SwapAmountY: SwapAmountY;
+    SwapAssetX: SwapAssetX;
+    SwapAssetY: SwapAssetY;
     SwapId: SwapId;
     SwapPoolDetails: SwapPoolDetails;
+    SwapPoolOwner: SwapPoolOwner;
+    SwapSender: SwapSender;
     SyncState: SyncState;
     SystemInherentData: SystemInherentData;
     SystemOrigin: SystemOrigin;
