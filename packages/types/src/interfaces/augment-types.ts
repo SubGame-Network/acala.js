@@ -65,6 +65,7 @@ import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame/types/inte
 import type { Template, TemplateName } from '@subgame/types/interfaces/gameTemplates';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { Commodity, CommodityId, LeaseInfo, NftId, PalletInfo, Program, ProgramId, StakeInfo } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, SwapId, SwapPoolDetails, SwapPoolOwner, SwapSender } from '@subgame/types/interfaces/swap';
 
 declare module '@polkadot/types/types/registry' {
@@ -207,6 +208,8 @@ declare module '@polkadot/types/types/registry' {
     CollatorSignature: CollatorSignature;
     CollectiveOrigin: CollectiveOrigin;
     CommittedCandidateReceipt: CommittedCandidateReceipt;
+    Commodity: Commodity;
+    CommodityId: CommodityId;
     CompactAssignments: CompactAssignments;
     CompactAssignmentsTo257: CompactAssignmentsTo257;
     CompactAssignmentsTo265: CompactAssignmentsTo265;
@@ -512,6 +515,7 @@ declare module '@polkadot/types/types/registry' {
     LaneId: LaneId;
     LastContribution: LastContribution;
     LastRuntimeUpgradeInfo: LastRuntimeUpgradeInfo;
+    LeaseInfo: LeaseInfo;
     LeasePeriod: LeasePeriod;
     LeasePeriodOf: LeasePeriodOf;
     Limits: Limits;
@@ -582,6 +586,7 @@ declare module '@polkadot/types/types/registry' {
     NextAuthority: NextAuthority;
     NextConfigDescriptor: NextConfigDescriptor;
     NextConfigDescriptorV1: NextConfigDescriptorV1;
+    NftId: NftId;
     NodeRole: NodeRole;
     Nominations: Nominations;
     NominatorIndex: NominatorIndex;
@@ -623,6 +628,7 @@ declare module '@polkadot/types/types/registry' {
     PalletEventMetadataLatest: PalletEventMetadataLatest;
     PalletEventMetadataV14: PalletEventMetadataV14;
     PalletId: PalletId;
+    PalletInfo: PalletInfo;
     PalletMetadataLatest: PalletMetadataLatest;
     PalletMetadataV14: PalletMetadataV14;
     PalletsOrigin: PalletsOrigin;
@@ -682,6 +688,8 @@ declare module '@polkadot/types/types/registry' {
     Prevotes: Prevotes;
     Priority: Priority;
     PriorLock: PriorLock;
+    Program: Program;
+    ProgramId: ProgramId;
     PropIndex: PropIndex;
     Proposal: Proposal;
     ProposalIndex: ProposalIndex;
@@ -843,6 +851,7 @@ declare module '@polkadot/types/types/registry' {
     SpanIndex: SpanIndex;
     SpanRecord: SpanRecord;
     Sr25519Signature: Sr25519Signature;
+    StakeInfo: StakeInfo;
     StakingLedger: StakingLedger;
     StakingLedgerTo223: StakingLedgerTo223;
     StakingLedgerTo240: StakingLedgerTo240;

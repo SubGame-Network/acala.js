@@ -6,3 +6,4 @@ export { default as gameGuessHashModule } from './defs/gameGuessHashModule';
 export { default as gameTemplates } from './defs/gameTemplates';
 export { default as stake } from './defs/stake';
 export { default as swap } from './defs/swap';
+export { default as subgameStakeNft } from './defs/subgameStakeNft';

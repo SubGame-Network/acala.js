@@ -9,3 +9,4 @@ export * from './gameGuessHashModule/types';
 export * from './gameTemplates/types';
 export * from './stake/types';
 export * from './swap/types';
+export * from './subgameStakeNft/types';
