@@ -1,16 +1,21 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Option, Vec, u32 } from '@polkadot/types';
+import type { Bytes, Option, Vec, bool, u128, u32 } from '@polkadot/types';
 import type { AnyNumber, ITuple, Observable } from '@polkadot/types/types';
 import type { AccountId, AssetId, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
 import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
+import type { Card } from '@subgame/types/interfaces/cardFactory';
 import type { ChipsDetail } from '@subgame/types/interfaces/chips';
 import type { GameInstance, GameInstanceId } from '@subgame/types/interfaces/gameCenter';
 import type { BetInfo, GameIndex, GameInfo } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { GRPlatform } from '@subgame/types/interfaces/gameRecharge';
 import type { Template } from '@subgame/types/interfaces/gameTemplates';
+import type { CardInfo, CardType } from '@subgame/types/interfaces/manageCardInfo';
+import type { Auction, Platform } from '@subgame/types/interfaces/nftExchange';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { NftId, Program, StakeInfo } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapId, SwapPoolDetails } from '@subgame/types/interfaces/swap';
 import type { ApiTypes } from '@polkadot/api/types';
 
@@ -26,6 +31,15 @@ declare module '@polkadot/api/types/storage' {
        * subgame chain to other chain
        **/
       outRecord: AugmentedQuery<ApiType, () => Observable<Vec<BridgeRecord>>, []> & QueryableStorageEntry<ApiType, []>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    cardFactory: {
+      cards: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Card>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
+      cardsByNftId: AugmentedQuery<ApiType, (arg: NftId | string | Uint8Array) => Observable<u128>, [NftId]> & QueryableStorageEntry<ApiType, [NftId]>;
+      nextCardId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
       /**
        * Generic query
        **/
@@ -85,9 +99,39 @@ declare module '@polkadot/api/types/storage' {
        **/
       [key: string]: QueryableStorageEntry<ApiType>;
     };
+    gameRecharge: {
+      nextOrderId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      nextPlatformId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      platforms: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Option<GRPlatform>>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
     gameTemplates: {
       templateMap: AugmentedQuery<ApiType, (arg: u32 | AnyNumber | Uint8Array) => Observable<Template>, [u32]> & QueryableStorageEntry<ApiType, [u32]>;
       templates: AugmentedQuery<ApiType, () => Observable<Vec<Template>>, []> & QueryableStorageEntry<ApiType, []>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    manageCardInfo: {
+      cardInfos: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Option<CardInfo>>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
+      cardTypes: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Option<CardType>>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
+      nextCardInfoId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      nextCardTypeId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    nftExchange: {
+      auctioningNfts: AugmentedQuery<ApiType, (arg: NftId | string | Uint8Array) => Observable<bool>, [NftId]> & QueryableStorageEntry<ApiType, [NftId]>;
+      auctions: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Option<Auction>>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
+      nextAuctionId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      nextPlatformId: AugmentedQuery<ApiType, () => Observable<u128>, []> & QueryableStorageEntry<ApiType, []>;
+      platforms: AugmentedQuery<ApiType, (arg: u128 | AnyNumber | Uint8Array) => Observable<Option<Platform>>, [u128]> & QueryableStorageEntry<ApiType, [u128]>;
       /**
        * Generic query
        **/
@@ -116,6 +160,15 @@ declare module '@polkadot/api/types/storage' {
        * Metadata of an asset.
        **/
       metadata: AugmentedQuery<ApiType, (arg: AssetId | AnyNumber | Uint8Array) => Observable<SubGameAssetMetadata>, [AssetId]> & QueryableStorageEntry<ApiType, [AssetId]>;
+      /**
+       * Generic query
+       **/
+      [key: string]: QueryableStorageEntry<ApiType>;
+    };
+    subgameStakeNft: {
+      programs: AugmentedQuery<ApiType, () => Observable<Vec<Program>>, []> & QueryableStorageEntry<ApiType, []>;
+      stakeInfos: AugmentedQuery<ApiType, (arg: AccountId | string | Uint8Array) => Observable<Vec<StakeInfo>>, [AccountId]> & QueryableStorageEntry<ApiType, [AccountId]>;
+      stakeUsers: AugmentedQuery<ApiType, () => Observable<Vec<AccountId>>, []> & QueryableStorageEntry<ApiType, []>;
       /**
        * Generic query
        **/

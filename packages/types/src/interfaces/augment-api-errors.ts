@@ -20,6 +20,18 @@ declare module '@polkadot/api/types/errors' {
        **/
       [key: string]: AugmentedError<ApiType>;
     };
+    cardFactory: {
+      AbilityOfLevelNotMatchLimit: AugmentedError<ApiType>;
+      NotAdmin: AugmentedError<ApiType>;
+      NotCardOwner: AugmentedError<ApiType>;
+      NotFoundData: AugmentedError<ApiType>;
+      PermissionDenied: AugmentedError<ApiType>;
+      UnknownType: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
     chips: {
       ChipsIsNotEnough: AugmentedError<ApiType>;
       MoneyNotEnough: AugmentedError<ApiType>;
@@ -45,8 +57,48 @@ declare module '@polkadot/api/types/errors' {
        **/
       [key: string]: AugmentedError<ApiType>;
     };
+    gameRecharge: {
+      BalanceNotEnough: AugmentedError<ApiType>;
+      NotAdmin: AugmentedError<ApiType>;
+      NotFoundAsset: AugmentedError<ApiType>;
+      NotFoundData: AugmentedError<ApiType>;
+      PermissionDenied: AugmentedError<ApiType>;
+      UnknownPlatform: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
     gameTemplates: {
       PermissionDenied: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
+    manageCardInfo: {
+      AbilityOfLevelNotMatchLimit: AugmentedError<ApiType>;
+      NotAdmin: AugmentedError<ApiType>;
+      NotFoundData: AugmentedError<ApiType>;
+      PermissionDenied: AugmentedError<ApiType>;
+      UnknownType: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
+    nftExchange: {
+      AuctionAmountNotAllowed: AugmentedError<ApiType>;
+      MoneyNotEnough: AugmentedError<ApiType>;
+      NftAuctionDone: AugmentedError<ApiType>;
+      NftAuctioning: AugmentedError<ApiType>;
+      NotAdmin: AugmentedError<ApiType>;
+      NotFoundData: AugmentedError<ApiType>;
+      NotNftOwner: AugmentedError<ApiType>;
+      PercentageOfFeeNotAllowed: AugmentedError<ApiType>;
+      PermissionDenied: AugmentedError<ApiType>;
+      UnknownType: AugmentedError<ApiType>;
+      UnknowPlatform: AugmentedError<ApiType>;
       /**
        * Generic error
        **/
@@ -110,17 +162,27 @@ declare module '@polkadot/api/types/errors' {
        **/
       Overflow: AugmentedError<ApiType>;
       /**
+       * Too many zombie accounts in use.
        * Attempt to destroy an asset class when non-zombie, reference-bearing accounts exist.
        **/
       RefsLeft: AugmentedError<ApiType>;
       /**
-       * Too many zombie accounts in use.
-       **/
-      TooManyZombies: AugmentedError<ApiType>;
-      /**
        * The given asset ID is unknown.
        **/
       Unknown: AugmentedError<ApiType>;
+      /**
+       * Generic error
+       **/
+      [key: string]: AugmentedError<ApiType>;
+    };
+    subgameStakeNft: {
+      AlreadyPallet: AugmentedError<ApiType>;
+      AlreadyProgram: AugmentedError<ApiType>;
+      AlreadyStake: AugmentedError<ApiType>;
+      MoneyNotEnough: AugmentedError<ApiType>;
+      NotFoundPallet: AugmentedError<ApiType>;
+      NotFoundProgram: AugmentedError<ApiType>;
+      PermissionDenied: AugmentedError<ApiType>;
       /**
        * Generic error
        **/
@@ -171,6 +233,10 @@ declare module '@polkadot/api/types/errors' {
        * A Swap already exists.
        **/
       SwapAlreadyExists: AugmentedError<ApiType>;
+      /**
+       * Too many LP token.
+       **/
+      TooManyLPToken: AugmentedError<ApiType>;
       /**
        * Zero balance supplied.
        **/

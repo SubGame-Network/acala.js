@@ -1,12 +1,15 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, u32, u8 } from '@polkadot/types';
+import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types';
 import type { BlockHash } from '@polkadot/types/interfaces/chain';
-import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber, PalletId } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { Plan } from '@subgame/types/interfaces/gameRecharge';
+import type { AbilityOfLevel } from '@subgame/types/interfaces/manageCardInfo';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { NftId, ProgramId } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, SwapId, SwapPoolOwner, SwapSender } from '@subgame/types/interfaces/swap';
 import type { ApiTypes } from '@polkadot/api/types';
 
@@ -21,6 +24,15 @@ declare module '@polkadot/api/types/events' {
        * Bridge to subgame
        **/
       Send: AugmentedEvent<ApiType, [AccountId, BalanceOf, Bytes]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    cardFactory: {
+      DestroyCard: AugmentedEvent<ApiType, [AccountId, u128]>;
+      NewCard: AugmentedEvent<ApiType, [AccountId, u128, u128, u8, u32, NftId]>;
+      UpdateCard: AugmentedEvent<ApiType, [AccountId, u128, u128, u8, u32, NftId]>;
       /**
        * Generic event
        **/
@@ -82,8 +94,39 @@ declare module '@polkadot/api/types/events' {
        **/
       [key: string]: AugmentedEvent<ApiType>;
     };
+    gameRecharge: {
+      NewPlatform: AugmentedEvent<ApiType, [u128, AccountId, AccountId, AssetId, Vec<Plan>]>;
+      Recharge: AugmentedEvent<ApiType, [AccountId, u128, SGAssetBalance, SGAssetBalance]>;
+      UpdatePlatform: AugmentedEvent<ApiType, [AccountId, u128, Vec<Plan>]>;
+      Withdraw: AugmentedEvent<ApiType, [AccountId, SGAssetBalance]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
     gameTemplates: {
       CreateTemplate: AugmentedEvent<ApiType, [AccountId, u32, u32]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    manageCardInfo: {
+      NewCardInfo: AugmentedEvent<ApiType, [AccountId, u128, Bytes, Bytes, u128]>;
+      NewCardType: AugmentedEvent<ApiType, [AccountId, u128, Bytes, Bytes, u32, u32, u32, Vec<AbilityOfLevel>, bool]>;
+      UpdateCardInfo: AugmentedEvent<ApiType, [u128, Bytes, Bytes]>;
+      UpdateCardType: AugmentedEvent<ApiType, [u128, Bytes, Bytes, u32, u32, u32, Vec<AbilityOfLevel>, bool]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    nftExchange: {
+      AuctionBuy: AugmentedEvent<ApiType, [u128, AccountId, u8, BalanceOf]>;
+      AuctionDone: AugmentedEvent<ApiType, [u128]>;
+      NewAuction: AugmentedEvent<ApiType, [u128, u128, NftId, AccountId, BalanceOf]>;
+      NewPlatform: AugmentedEvent<ApiType, [AccountId, u8, AccountId]>;
+      UpdatePlatform: AugmentedEvent<ApiType, [AccountId, u128, u8, AccountId]>;
       /**
        * Generic event
        **/
@@ -161,6 +204,14 @@ declare module '@polkadot/api/types/events' {
        * Some assets were transferred. \[asset_id, from, to, amount\]
        **/
       Transferred: AugmentedEvent<ApiType, [AssetId, AccountId, AccountId, SGAssetBalance]>;
+      /**
+       * Generic event
+       **/
+      [key: string]: AugmentedEvent<ApiType>;
+    };
+    subgameStakeNft: {
+      ProgramAdded: AugmentedEvent<ApiType, [ProgramId, BalanceOf, u64]>;
+      Stake: AugmentedEvent<ApiType, [AccountId, ProgramId, PalletId, u64, Bytes, Bytes, NftId, BalanceOf]>;
       /**
        * Generic event
        **/

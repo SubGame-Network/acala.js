@@ -59,10 +59,14 @@ import type { Multisig, Timepoint } from '@polkadot/types/interfaces/utility';
 import type { VestingInfo } from '@polkadot/types/interfaces/vesting';
 import type { AssetInstance, AssetInstanceV0, AssetInstanceV1, BodyId, BodyPart, DoubleEncodedCall, Fungibility, InboundStatus, Junction, MultiAsset, MultiAssetFilter, MultiAssetV0, MultiAssetV1, MultiAssets, MultiLocation, NetworkId, OutboundStatus, Outcome, QueueConfigData, VersionedMultiAsset, VersionedMultiLocation, VersionedXcm, WildFungibility, WildMultiAsset, Xcm, XcmAssetId, XcmError, XcmOrder, XcmOrderV0, XcmOrderV1, XcmOrigin, XcmOriginKind, XcmResponse, XcmpMessageFormat } from '@polkadot/types/interfaces/xcm';
 import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
+import type { Card } from '@subgame/types/interfaces/cardFactory';
 import type { ChipBalance, ChipsDetail } from '@subgame/types/interfaces/chips';
 import type { GameInstance, GameInstanceId } from '@subgame/types/interfaces/gameCenter';
 import type { BetInfo, GameIndex, GameInfo, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { GRPlatform, Plan } from '@subgame/types/interfaces/gameRecharge';
 import type { Template, TemplateName } from '@subgame/types/interfaces/gameTemplates';
+import type { AbilityOfLevel, CardInfo, CardType } from '@subgame/types/interfaces/manageCardInfo';
+import type { Auction, Platform } from '@subgame/types/interfaces/nftExchange';
 import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SGAssetBalance, SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { Commodity, CommodityId, LeaseInfo, NftId, PalletInfo, Program, ProgramId, StakeInfo } from '@subgame/types/interfaces/subgameStakeNft';
@@ -70,6 +74,7 @@ import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, Sw
 
 declare module '@polkadot/types/types/registry' {
   export interface InterfaceTypes {
+    AbilityOfLevel: AbilityOfLevel;
     AbridgedCandidateReceipt: AbridgedCandidateReceipt;
     AbridgedHostConfiguration: AbridgedHostConfiguration;
     AbridgedHrmpChannel: AbridgedHrmpChannel;
@@ -118,6 +123,7 @@ declare module '@polkadot/types/types/registry' {
     AssignmentId: AssignmentId;
     AssignmentKind: AssignmentKind;
     AttestedCandidate: AttestedCandidate;
+    Auction: Auction;
     AuctionIndex: AuctionIndex;
     AuthIndex: AuthIndex;
     AuthorityDiscoveryId: AuthorityDiscoveryId;
@@ -192,6 +198,9 @@ declare module '@polkadot/types/types/registry' {
     CandidateInfo: CandidateInfo;
     CandidatePendingAvailability: CandidatePendingAvailability;
     CandidateReceipt: CandidateReceipt;
+    Card: Card;
+    CardInfo: CardInfo;
+    CardType: CardType;
     ChainId: ChainId;
     ChainProperties: ChainProperties;
     ChainType: ChainType;
@@ -435,6 +444,7 @@ declare module '@polkadot/types/types/registry' {
     GrandpaPrevote: GrandpaPrevote;
     GrandpaSignedPrecommit: GrandpaSignedPrecommit;
     GroupIndex: GroupIndex;
+    GRPlatform: GRPlatform;
     H1024: H1024;
     H128: H128;
     H160: H160;
@@ -676,6 +686,8 @@ declare module '@polkadot/types/types/registry' {
     PhantomData: PhantomData;
     Phase: Phase;
     PhragmenScore: PhragmenScore;
+    Plan: Plan;
+    Platform: Platform;
     Points: Points;
     PortableRegistry: PortableRegistry;
     PortableType: PortableType;

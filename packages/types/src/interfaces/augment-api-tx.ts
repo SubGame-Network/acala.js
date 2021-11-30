@@ -1,13 +1,16 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, u128, u32, u64, u8 } from '@polkadot/types';
+import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types';
 import type { AnyNumber } from '@polkadot/types/types';
 import type { Extrinsic } from '@polkadot/types/interfaces/extrinsics';
-import type { AccountId, AssetId, BalanceOf, BlockNumber, Call } from '@polkadot/types/interfaces/runtime';
+import type { AccountId, AssetId, BalanceOf, BlockNumber, Call, PalletId } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
+import type { Plan } from '@subgame/types/interfaces/gameRecharge';
+import type { AbilityOfLevel } from '@subgame/types/interfaces/manageCardInfo';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
+import type { NftId, ProgramId } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapId } from '@subgame/types/interfaces/swap';
 import type { ApiTypes, SubmittableExtrinsic } from '@polkadot/api/types';
 
@@ -26,6 +29,15 @@ declare module '@polkadot/api/types/submittable' {
        * outchain to subgame (sgb)
        **/
       updateMinLimit: AugmentedSubmittable<(amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [BalanceOf]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
+    cardFactory: {
+      createCard: AugmentedSubmittable<(cardInfoId: u128 | AnyNumber | Uint8Array, level: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8]>;
+      destroyCard: AugmentedSubmittable<(cardId: u128 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128]>;
+      editCard: AugmentedSubmittable<(cardId: u128 | AnyNumber | Uint8Array, level: u8 | AnyNumber | Uint8Array, abilityValue1: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8, u32]>;
       /**
        * Generic tx
        **/
@@ -70,11 +82,45 @@ declare module '@polkadot/api/types/submittable' {
        **/
       [key: string]: SubmittableExtrinsicFunction<ApiType>;
     };
+    gameRecharge: {
+      createPlatform: AugmentedSubmittable<(admin: AccountId | string | Uint8Array, poolAccount: AccountId | string | Uint8Array, assetId: AssetId | AnyNumber | Uint8Array, plan: Vec<Plan> | (Plan | { amount?: any; score?: any } | string | Uint8Array)[]) => SubmittableExtrinsic<ApiType>, [AccountId, AccountId, AssetId, Vec<Plan>]>;
+      platformChangeAdmin: AugmentedSubmittable<(platformId: u128 | AnyNumber | Uint8Array, newAdmin: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, AccountId]>;
+      recharge: AugmentedSubmittable<(platformId: u128 | AnyNumber | Uint8Array, matchId: u128 | AnyNumber | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u128, SGAssetBalance]>;
+      updatePlatform: AugmentedSubmittable<(id: u128 | AnyNumber | Uint8Array, plan: Vec<Plan> | (Plan | { amount?: any; score?: any } | string | Uint8Array)[]) => SubmittableExtrinsic<ApiType>, [u128, Vec<Plan>]>;
+      withdraw: AugmentedSubmittable<(platformId: u128 | AnyNumber | Uint8Array, target: AccountId | string | Uint8Array, amount: SGAssetBalance | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, AccountId, SGAssetBalance]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
     gameTemplates: {
       /**
        * create new template
        **/
       createTemplate: AugmentedSubmittable<(newTemplateName: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u32]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
+    manageCardInfo: {
+      changeAdmin: AugmentedSubmittable<(typeId: u128 | AnyNumber | Uint8Array, newAdmin: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, AccountId]>;
+      createCardInfo: AugmentedSubmittable<(name: Bytes | string | Uint8Array, desc: Bytes | string | Uint8Array, typeId: u128 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [Bytes, Bytes, u128]>;
+      createType: AugmentedSubmittable<(name: Bytes | string | Uint8Array, desc: Bytes | string | Uint8Array, fixedAbilityValue1: u32 | AnyNumber | Uint8Array, fixedAbilityValue2: u32 | AnyNumber | Uint8Array, specialAttribute1: Bytes | string | Uint8Array, levelMaxLimit: u32 | AnyNumber | Uint8Array, abilityOfLevel: Vec<AbilityOfLevel> | (AbilityOfLevel | { level?: any; ability_value_1_min?: any; ability_value_1_max?: any } | string | Uint8Array)[], isCanDraw: bool | boolean | Uint8Array) => SubmittableExtrinsic<ApiType>, [Bytes, Bytes, u32, u32, Bytes, u32, Vec<AbilityOfLevel>, bool]>;
+      updateCardInfo: AugmentedSubmittable<(infoId: u128 | AnyNumber | Uint8Array, name: Bytes | string | Uint8Array, desc: Bytes | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, Bytes, Bytes]>;
+      updateType: AugmentedSubmittable<(id: u128 | AnyNumber | Uint8Array, name: Bytes | string | Uint8Array, desc: Bytes | string | Uint8Array, fixedAbilityValue1: u32 | AnyNumber | Uint8Array, fixedAbilityValue2: u32 | AnyNumber | Uint8Array, specialAttribute1: Bytes | string | Uint8Array, levelMaxLimit: u32 | AnyNumber | Uint8Array, abilityOfLevel: Vec<AbilityOfLevel> | (AbilityOfLevel | { level?: any; ability_value_1_min?: any; ability_value_1_max?: any } | string | Uint8Array)[], isCanDraw: bool | boolean | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, Bytes, Bytes, u32, u32, Bytes, u32, Vec<AbilityOfLevel>, bool]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
+    nftExchange: {
+      auctionBuy: AugmentedSubmittable<(auctionId: u128 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128]>;
+      auctionDone: AugmentedSubmittable<(auctionId: u128 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128]>;
+      createAuction: AugmentedSubmittable<(platformId: u128 | AnyNumber | Uint8Array, nftId: NftId | string | Uint8Array, amount: BalanceOf | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, NftId, BalanceOf]>;
+      createPlatform: AugmentedSubmittable<(admin: AccountId | string | Uint8Array, percentageOfFee: u8 | AnyNumber | Uint8Array, feeAccount: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AccountId, u8, AccountId]>;
+      platformChangeAdmin: AugmentedSubmittable<(platformId: u128 | AnyNumber | Uint8Array, newAdmin: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, AccountId]>;
+      updatePlatform: AugmentedSubmittable<(id: u128 | AnyNumber | Uint8Array, percentageOfFee: u8 | AnyNumber | Uint8Array, feeAccount: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8, AccountId]>;
       /**
        * Generic tx
        **/
@@ -363,6 +409,15 @@ declare module '@polkadot/api/types/submittable' {
        * Weight: `O(1)`
        **/
       transferOwnership: AugmentedSubmittable<(id: AssetId | AnyNumber | Uint8Array, owner: AccountId | string | Uint8Array) => SubmittableExtrinsic<ApiType>, [AssetId, AccountId]>;
+      /**
+       * Generic tx
+       **/
+      [key: string]: SubmittableExtrinsicFunction<ApiType>;
+    };
+    subgameStakeNft: {
+      addProgram: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array, stakeAmount: BalanceOf | AnyNumber | Uint8Array, day: u64 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId, BalanceOf, u64]>;
+      delProgram: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId]>;
+      stake: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array, palletId: PalletId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId, PalletId]>;
       /**
        * Generic tx
        **/

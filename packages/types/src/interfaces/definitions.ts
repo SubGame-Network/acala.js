@@ -7,3 +7,7 @@ export { default as gameTemplates } from './gameTemplates/definitions';
 export { default as stake } from './stake/definitions';
 export { default as swap } from './swap/definitions';
 export { default as subgameStakeNft } from './subgameStakeNft/definitions';
+export { default as nftExchange } from './nftExchange/definitions';
+export { default as gameRecharge } from './gameRecharge/definitions';
+export { default as manageCardInfo } from './manageCardInfo/definitions';
+export { default as cardFactory } from './cardFactory/definitions';
