@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Struct, u128, u64 } from '@polkadot/types';
+import type { Bytes, Struct, bool, u128, u64 } from '@polkadot/types';
 import type { Balance, Hash, Moment } from '@polkadot/types/interfaces/runtime';
 
 /** @name Commodity */
@@ -46,6 +46,7 @@ export interface StakeInfo extends Struct {
   readonly pallet_id: PalletId;
   readonly program_id: ProgramId;
   readonly stake_amount: Balance;
+  readonly will_expire: bool;
   readonly expires_at: Moment;
   readonly nft_id: NftId;
 }

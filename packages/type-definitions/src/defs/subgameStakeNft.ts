@@ -13,6 +13,7 @@ export default {
       pallet_id: 'PalletId',
       program_id: 'ProgramId',
       stake_amount: 'Balance',
+      will_expire: 'bool',
       expires_at: 'Moment',
       nft_id: 'NftId'
     }
