@@ -12,13 +12,10 @@ const additionalOverride = {
   Keys: 'SessionKeys1'
 };
 
-export const types = {
-  ...typesFromDefs(subgameDefs),
-  ...additionalOverride
-};
+const types = typesFromDefs(subgameDefs);
 
-export const rpc = jsonrpcFromDefs(subgameDefs);
-export const typesAlias = typesAliasFromDefs(subgameDefs);
+const rpc = jsonrpcFromDefs(subgameDefs);
+const typesAlias = typesAliasFromDefs(subgameDefs);
 
 function getBundle(versioned: OverrideVersionedType[]) {
   return {
@@ -39,16 +36,18 @@ function getBundle(versioned: OverrideVersionedType[]) {
   };
 }
 
-export const typesBundle = {
+const typesBundle = {
   spec: {
     subgame: getBundle(subgameVersioned)
   }
 };
 
-export const typesBundleForPolkadot = {
+const typesBundleForPolkadot = {
   spec: {
     subgame: getBundle(subgameVersioned)
   }
 };
 
-export const signedExtensions = subgameSignedExtensions;
+const signedExtensions = subgameSignedExtensions;
+
+export { additionalOverride, types, rpc, typesAlias, typesBundleForPolkadot, typesBundle, signedExtensions };

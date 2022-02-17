@@ -183,8 +183,7 @@
                             "level": "u8",
                             "ability_value_1": "u32",
                             "nft_id": "NftId"
-                        },
-                        "Keys": "SessionKeys1"
+                        }
                     }
                 }
             ],

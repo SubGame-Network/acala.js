@@ -96,9 +96,9 @@ declare module '@polkadot/api/types/events' {
     };
     gameRecharge: {
       NewPlatform: AugmentedEvent<ApiType, [u128, AccountId, AccountId, AssetId, Vec<Plan>]>;
-      Recharge: AugmentedEvent<ApiType, [AccountId, u128, SGAssetBalance, SGAssetBalance]>;
+      Recharge: AugmentedEvent<ApiType, [AccountId, u128, SGAssetBalance, SGAssetBalance, u128]>;
       UpdatePlatform: AugmentedEvent<ApiType, [AccountId, u128, Vec<Plan>]>;
-      Withdraw: AugmentedEvent<ApiType, [AccountId, SGAssetBalance]>;
+      Withdraw: AugmentedEvent<ApiType, [AccountId, SGAssetBalance, u128]>;
       /**
        * Generic event
        **/
@@ -210,8 +210,11 @@ declare module '@polkadot/api/types/events' {
       [key: string]: AugmentedEvent<ApiType>;
     };
     subgameStakeNft: {
+      Expire: AugmentedEvent<ApiType, [AccountId, NftId]>;
       ProgramAdded: AugmentedEvent<ApiType, [ProgramId, BalanceOf, u64]>;
+      Renew: AugmentedEvent<ApiType, [AccountId, NftId, Bytes]>;
       Stake: AugmentedEvent<ApiType, [AccountId, ProgramId, PalletId, u64, Bytes, Bytes, NftId, BalanceOf]>;
+      UpdateStakeExpire: AugmentedEvent<ApiType, [AccountId, NftId, bool]>;
       /**
        * Generic event
        **/

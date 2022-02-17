@@ -89,6 +89,7 @@ declare module '@polkadot/api/types/errors' {
     };
     nftExchange: {
       AuctionAmountNotAllowed: AugmentedError<ApiType>;
+      Invalid: AugmentedError<ApiType>;
       MoneyNotEnough: AugmentedError<ApiType>;
       NftAuctionDone: AugmentedError<ApiType>;
       NftAuctioning: AugmentedError<ApiType>;
@@ -180,6 +181,8 @@ declare module '@polkadot/api/types/errors' {
       AlreadyProgram: AugmentedError<ApiType>;
       AlreadyStake: AugmentedError<ApiType>;
       MoneyNotEnough: AugmentedError<ApiType>;
+      NotFoundData: AugmentedError<ApiType>;
+      NotFoundNft: AugmentedError<ApiType>;
       NotFoundPallet: AugmentedError<ApiType>;
       NotFoundProgram: AugmentedError<ApiType>;
       PermissionDenied: AugmentedError<ApiType>;

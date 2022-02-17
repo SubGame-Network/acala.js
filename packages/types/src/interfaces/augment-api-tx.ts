@@ -36,6 +36,7 @@ declare module '@polkadot/api/types/submittable' {
     };
     cardFactory: {
       createCard: AugmentedSubmittable<(cardInfoId: u128 | AnyNumber | Uint8Array, level: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8]>;
+      createCardMany: AugmentedSubmittable<(cardInfoId: u128 | AnyNumber | Uint8Array, level: u8 | AnyNumber | Uint8Array, quantity: u8 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8, u8]>;
       destroyCard: AugmentedSubmittable<(cardId: u128 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128]>;
       editCard: AugmentedSubmittable<(cardId: u128 | AnyNumber | Uint8Array, level: u8 | AnyNumber | Uint8Array, abilityValue1: u32 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [u128, u8, u32]>;
       /**
@@ -417,6 +418,7 @@ declare module '@polkadot/api/types/submittable' {
     subgameStakeNft: {
       addProgram: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array, stakeAmount: BalanceOf | AnyNumber | Uint8Array, day: u64 | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId, BalanceOf, u64]>;
       delProgram: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId]>;
+      setStakeWillExpire: AugmentedSubmittable<(nftId: NftId | string | Uint8Array, willExpire: bool | boolean | Uint8Array) => SubmittableExtrinsic<ApiType>, [NftId, bool]>;
       stake: AugmentedSubmittable<(programId: ProgramId | AnyNumber | Uint8Array, palletId: PalletId | AnyNumber | Uint8Array) => SubmittableExtrinsic<ApiType>, [ProgramId, PalletId]>;
       /**
        * Generic tx
