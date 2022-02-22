@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Struct, u128, u32, u8 } from '@polkadot/types';
+import type { Struct, u128, u32, u8 } from '@polkadot/types-codec';
 import type { NftId } from '@subgame/types/interfaces/subgameStakeNft';
 
 /** @name Card */

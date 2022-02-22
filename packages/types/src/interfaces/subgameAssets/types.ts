@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Struct, bool, u32, u64, u8 } from '@polkadot/types';
+import type { Bytes, Struct, bool, u32, u64, u8 } from '@polkadot/types-codec';
 import type { AccountId } from '@polkadot/types/interfaces/runtime';
 import type { DepositBalance } from '@polkadot/types/interfaces/uniques';
 

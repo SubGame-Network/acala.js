@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Struct, u128, u32, u64 } from '@polkadot/types';
+import type { Struct, u128, u32, u64 } from '@polkadot/types-codec';
 import type { AccountId } from '@polkadot/types/interfaces/runtime';
 
 /** @name SwapAmountLP */

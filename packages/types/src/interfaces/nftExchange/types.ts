@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Option, Struct, u128, u8 } from '@polkadot/types';
+import type { Option, Struct, u128, u8 } from '@polkadot/types-codec';
 import type { AccountId, Balance } from '@polkadot/types/interfaces/runtime';
 import type { NftId } from '@subgame/types/interfaces/subgameStakeNft';
 

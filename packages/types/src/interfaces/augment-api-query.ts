@@ -1,9 +1,11 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Option, Vec, bool, u128, u32 } from '@polkadot/types';
-import type { AnyNumber, ITuple, Observable } from '@polkadot/types/types';
+import type { ApiTypes } from '@polkadot/api-base/types';
+import type { Bytes, Option, Vec, bool, u128, u32 } from '@polkadot/types-codec';
+import type { AnyNumber, ITuple } from '@polkadot/types-codec/types';
 import type { AccountId, AssetId, BalanceOf, BlockNumber } from '@polkadot/types/interfaces/runtime';
+import type { Observable } from '@polkadot/types/types';
 import type { BridgeRecord } from '@subgame/types/interfaces/bridge';
 import type { Card } from '@subgame/types/interfaces/cardFactory';
 import type { ChipsDetail } from '@subgame/types/interfaces/chips';
@@ -17,10 +19,9 @@ import type { UserInfo } from '@subgame/types/interfaces/stake';
 import type { SubGameAssetDetails, SubGameAssetMetadata, SusGameAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { NftId, Program, StakeInfo } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapId, SwapPoolDetails } from '@subgame/types/interfaces/swap';
-import type { ApiTypes } from '@polkadot/api/types';
 
-declare module '@polkadot/api/types/storage' {
-  export interface AugmentedQueries<ApiType> {
+declare module '@polkadot/api-base/types/storage' {
+  export interface AugmentedQueries<ApiType extends ApiTypes> {
     bridge: {
       bridgeMinLimit: AugmentedQuery<ApiType, () => Observable<Option<BalanceOf>>, []> & QueryableStorageEntry<ApiType, []>;
       /**
@@ -182,9 +183,5 @@ declare module '@polkadot/api/types/storage' {
        **/
       [key: string]: QueryableStorageEntry<ApiType>;
     };
-  }
-
-  export interface QueryableStorage<ApiType extends ApiTypes> extends AugmentedQueries<ApiType> {
-    [key: string]: QueryableModuleStorage<ApiType>;
-  }
-}
+  } // AugmentedQueries
+} // declare module

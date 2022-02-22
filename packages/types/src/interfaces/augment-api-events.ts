@@ -1,7 +1,8 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types';
+import type { ApiTypes } from '@polkadot/api-base/types';
+import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types-codec';
 import type { BlockHash } from '@polkadot/types/interfaces/chain';
 import type { AccountId, AssetId, Balance, BalanceOf, BlockNumber, PalletId } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
@@ -11,10 +12,9 @@ import type { AbilityOfLevel } from '@subgame/types/interfaces/manageCardInfo';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { NftId, ProgramId } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapAmountLP, SwapAmountX, SwapAmountY, SwapAssetX, SwapAssetY, SwapId, SwapPoolOwner, SwapSender } from '@subgame/types/interfaces/swap';
-import type { ApiTypes } from '@polkadot/api/types';
 
-declare module '@polkadot/api/types/events' {
-  export interface AugmentedEvents<ApiType> {
+declare module '@polkadot/api-base/types/events' {
+  export interface AugmentedEvents<ApiType extends ApiTypes> {
     bridge: {
       /**
        * Bridge from subgame
@@ -230,9 +230,5 @@ declare module '@polkadot/api/types/events' {
        **/
       [key: string]: AugmentedEvent<ApiType>;
     };
-  }
-
-  export interface DecoratedEvents<ApiType extends ApiTypes> extends AugmentedEvents<ApiType> {
-    [key: string]: ModuleEvents<ApiType>;
-  }
-}
+  } // AugmentedEvents
+} // declare module

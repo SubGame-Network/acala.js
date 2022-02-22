@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Struct, Vec, bool, u128, u32, u8 } from '@polkadot/types';
+import type { Bytes, Struct, Vec, bool, u128, u32, u8 } from '@polkadot/types-codec';
 import type { AccountId } from '@polkadot/types/interfaces/runtime';
 
 /** @name AbilityOfLevel */

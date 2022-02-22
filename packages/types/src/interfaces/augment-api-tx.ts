@@ -1,10 +1,10 @@
 // Auto-generated via `yarn polkadot-types-from-chain`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types';
-import type { AnyNumber } from '@polkadot/types/types';
-import type { Extrinsic } from '@polkadot/types/interfaces/extrinsics';
-import type { AccountId, AssetId, BalanceOf, BlockNumber, Call, PalletId } from '@polkadot/types/interfaces/runtime';
+import type { ApiTypes } from '@polkadot/api-base/types';
+import type { Bytes, Vec, bool, u128, u32, u64, u8 } from '@polkadot/types-codec';
+import type { AnyNumber } from '@polkadot/types-codec/types';
+import type { AccountId, AssetId, BalanceOf, BlockNumber, PalletId } from '@polkadot/types/interfaces/runtime';
 import type { ChipBalance } from '@subgame/types/interfaces/chips';
 import type { GameIndex, GameMode } from '@subgame/types/interfaces/gameGuessHashModule';
 import type { Plan } from '@subgame/types/interfaces/gameRecharge';
@@ -12,10 +12,9 @@ import type { AbilityOfLevel } from '@subgame/types/interfaces/manageCardInfo';
 import type { SGAssetBalance } from '@subgame/types/interfaces/subgameAssets';
 import type { NftId, ProgramId } from '@subgame/types/interfaces/subgameStakeNft';
 import type { SwapId } from '@subgame/types/interfaces/swap';
-import type { ApiTypes, SubmittableExtrinsic } from '@polkadot/api/types';
 
-declare module '@polkadot/api/types/submittable' {
-  export interface AugmentedSubmittables<ApiType> {
+declare module '@polkadot/api-base/types/submittable' {
+  export interface AugmentedSubmittables<ApiType extends ApiTypes> {
     bridge: {
       /**
        * outchain to subgame (sgb)
@@ -435,10 +434,5 @@ declare module '@polkadot/api/types/submittable' {
        **/
       [key: string]: SubmittableExtrinsicFunction<ApiType>;
     };
-  }
-
-  export interface SubmittableExtrinsics<ApiType extends ApiTypes> extends AugmentedSubmittables<ApiType> {
-    (extrinsic: Call | Extrinsic | Uint8Array | string): SubmittableExtrinsic<ApiType>;
-    [key: string]: SubmittableModuleExtrinsics<ApiType>;
-  }
-}
+  } // AugmentedSubmittables
+} // declare module

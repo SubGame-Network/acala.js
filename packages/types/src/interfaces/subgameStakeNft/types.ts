@@ -1,7 +1,7 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { Bytes, Struct, bool, u128, u64 } from '@polkadot/types';
+import type { Bytes, Struct, bool, u128, u64 } from '@polkadot/types-codec';
 import type { Balance, Hash, Moment } from '@polkadot/types/interfaces/runtime';
 
 /** @name Commodity */
