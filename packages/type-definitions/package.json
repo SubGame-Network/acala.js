@@ -1,6 +1,6 @@
 {
   "name": "@subgame/type-definitions",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Polkadot.js type definations for SubGame Network",
   "main": "index.js",
   "author": "SubGame Developers",
