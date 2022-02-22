@@ -1,6 +1,6 @@
 {
   "name": "@subgame/types",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "SubGame JS types",
   "main": "index.js",
   "keywords": [
@@ -30,7 +30,7 @@
     "@polkadot/api": "^7.9.1",
     "@polkadot/typegen": "^7.9.1",
     "@polkadot/types": "^7.9.1",
-    "@subgame/type-definitions": "^0.0.15"
+    "@subgame/type-definitions": "^0.0.16"
   },
   "devDependencies": {
     "@types/websocket": "^1.0.0",
