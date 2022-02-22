@@ -25,11 +25,11 @@
   "homepage": "https://github.com/SubGame-Network/subgame.js/tree/master/packages/types#readme",
   "dependencies": {
     "@babel/runtime": "^7.10.2",
-    "@open-web3/api-mobx": "^0.9.4-19",
-    "@open-web3/orml-types": "^0.9.4-19",
-    "@polkadot/api": "^5.6.1",
-    "@polkadot/typegen": "^5.6.1",
-    "@polkadot/types": "^5.6.1",
+    "@open-web3/api-mobx": "^1.0.1",
+    "@open-web3/orml-types": "^1.0.1",
+    "@polkadot/api": "^7.9.1",
+    "@polkadot/typegen": "^7.9.1",
+    "@polkadot/types": "^7.9.1",
     "@subgame/type-definitions": "^0.0.15"
   },
   "devDependencies": {
