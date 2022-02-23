@@ -1,0 +1,40 @@
+{
+  "name": "@subgame/example",
+  "version": "0.0.1",
+  "description": "example for @subgame/api",
+  "private":true,
+  "main": "index.ts",
+  "keywords": [
+    "Polkadot",
+    "SubGame",
+    "RxJs"
+  ],
+  "author": "SubGame Developers",
+  "maintainers": [
+    "SubGame Developers"
+  ],
+  "contributors": [],
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubGame-Network/subgame.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SubGame-Network/subgame.js/issues"
+  },
+  "homepage": "https://github.com/SubGame-Network/subgame.js/tree/master/packages/api#readme",
+  "dependencies": {
+    "@polkadot/api": "^7.9.1",
+    "@subgame/api": "^0.0.18"
+  },
+  "scripts": {
+    "test": "ts-node --project ../../tsconfig.json src/index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^8.6.1"
+  }
+}
